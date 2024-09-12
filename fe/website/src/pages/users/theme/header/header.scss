@@ -71,6 +71,7 @@
 
         li {
             list-style: none;
+            position: relative;
 
             a {
                 text-decoration: none;
@@ -83,9 +84,37 @@
                 display: block;
             }
         }
+        li:hover .header__menu_dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
 
         .active a {
             color: map.get($theme-colors, 'main');
+        }
+        .header__menu_dropdown {
+            display: block;
+            background-color: #f2ced8;
+            position: absolute;
+            width: 180px;
+            visibility: hidden;
+            transition: all 0.3s;
+            opacity: 0;
+            z-index: 9;
+            padding: 5px 0;
+
+            li {
+                a {
+                    text-transform: capitalize; //viết hoa chữ cái đầu
+                    // color: #f26398;
+                    color: #000000;
+                    padding: 5px 15px;
+                    font-weight: 600;
+                }
+                :hover {
+                    color: map.get($theme-colors, 'main');
+                }
+            }
         }
     }
 }
