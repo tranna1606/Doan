@@ -5,6 +5,7 @@ import {
     AiFillInstagram,
     AiFillLinkedin,
     AiFillTwitterSquare,
+    AiOutlineMenu,
     AiOutlineShoppingCart,
     AiOutlineUser,
     AiTwotoneMail,
@@ -14,6 +15,7 @@ import { Link } from 'react-router-dom';
 import { fomatter } from 'utils/formatter';
 import { ROUTERS } from 'utils/router';
 const Header = () => {
+    const [isShowCategories, setShowCategories] = useState(true);
     const [menus, setMenus] = useState([
         {
             name: 'Trang chủ',
@@ -137,6 +139,44 @@ const Header = () => {
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div className="container">
+                <div className="row hero__categories_container">
+                    <div className="col-xl-3 hero__categories">
+                        <div
+                            className="hero__categories_all"
+                            onClick={() => {
+                                setShowCategories(!isShowCategories);
+                            }}
+                        >
+                            <AiOutlineMenu />
+                            Danh sách sản phẩm
+                        </div>
+
+                        <ul className={isShowCategories ? '' : 'hidden'}>
+                            <li>
+                                <Link to={'#'}> Đầm </Link>
+                            </li>
+                            <li>
+                                <Link to={'#'}> Áo sơ mi </Link>
+                            </li>
+                            <li>
+                                <Link to={'#'}> Quần </Link>
+                            </li>
+                            <li>
+                                <Link to={'#'}> Áo thun </Link>
+                            </li>
+                            <li>
+                                <Link to={'#'}>Áo khoác </Link>
+                            </li>
+                            <li>
+                                <Link to={'#'}> Chân váy </Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="col-xl-9">Phai</div>
                 </div>
             </div>
         </>
