@@ -82,11 +82,7 @@ const Header = () => {
                                         <AiFillLinkedin />
                                     </Link>
                                 </li>
-                                <li>
-                                    <Link to={''}>
-                                        <AiFillTwitterSquare />
-                                    </Link>
-                                </li>
+
                                 <li>
                                     <Link to={''}>
                                         <AiOutlineUser />
@@ -112,6 +108,16 @@ const Header = () => {
                                 {menus?.map((menu, menuKey) => (
                                     <li key={menuKey} className={menuKey === 0 ? 'active' : ''}>
                                         <Link to={menu?.path}>{menu?.name}</Link>
+
+                                        {menu.children && (
+                                            <ul className="header__menu_dropdown">
+                                                {menu.children.map((child, childKey) => (
+                                                    <li key={`${menuKey}-${childKey}`}>
+                                                        <Link to={child.path}>{child.name}</Link>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
                                     </li>
                                 ))}
                             </ul>
