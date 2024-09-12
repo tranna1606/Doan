@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="footer">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                             <div className="footer__about">
                                 <h1 className="footer__about-logo">Ningni Store</h1>
                                 <ul>
@@ -25,7 +25,7 @@ const Footer = () => {
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-lg-6">
+                        <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div className="footer_widget">
                                 <h4>Cửa hàng</h4>
                                 <ul>
@@ -54,13 +54,14 @@ const Footer = () => {
                             <div></div>
                         </div>
 
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                             <div className="footer_widget">
                                 <h4>Khuyến mãi & ưu đãi</h4>
+                                <p>Đăng ký nhận thông tin tại đây</p>
                                 <form action="">
-                                    <div>
+                                    <div className="input_group">
                                         <input type="text" placeholder="Nhập email"></input>
-                                        <button type="submit" className="btn-submit">
+                                        <button type="submit" className=" button-submit ">
                                             Đăng ký
                                         </button>
                                     </div>
