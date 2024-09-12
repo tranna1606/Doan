@@ -6,6 +6,7 @@ import {
     AiFillLinkedin,
     AiFillTwitterSquare,
     AiOutlineMenu,
+    AiOutlinePhone,
     AiOutlineShoppingCart,
     AiOutlineUser,
     AiTwotoneMail,
@@ -144,7 +145,7 @@ const Header = () => {
 
             <div className="container">
                 <div className="row hero__categories_container">
-                    <div className="col-xl-3 hero__categories">
+                    <div className="col-lg-3 hero__categories">
                         <div
                             className="hero__categories_all"
                             onClick={() => {
@@ -176,7 +177,33 @@ const Header = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="col-xl-9">Phai</div>
+                    <div className=" col-lg-9 hero__search_container">
+                        <div className="hero__search">
+                            <div className=" col-lg-9 hero__search__form">
+                                <form>
+                                    <input type="text" placeholder="Bạn đang tìm gì? " />
+                                    <button type="submit">Tìm kiếm</button>
+                                </form>
+                            </div>
+
+                            <div className="col-lg-3 hero__search__phone">
+                                <div className="hero__search__phone_icon">
+                                    <AiOutlinePhone />
+                                </div>
+                                <div className="hero__search__phone_text">
+                                    <p>0783.448.693</p>
+                                    <span>Hỗ trợ 24/7</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="hero__item">
+                            <div className="hero__item_btn">
+                                <Link to="" className="primary-btn">
+                                    Mua ngay
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

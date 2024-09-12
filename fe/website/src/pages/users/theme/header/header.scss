@@ -1,5 +1,6 @@
 @use 'sass:map';
 @import 'style/pages/theme';
+$bannerImg: '/assets/users/images/hero/banner.webp';
 .header__top {
     background-color: #f5f5f5;
 }
@@ -155,57 +156,162 @@
         }
     }
 }
-//hero__categories_container
-.hero__categories {
-    position: relative;
+.hero__categories_container {
+    .hero__categories {
+        position: relative;
 
-    .hero__categories_all {
-        background: map.get($theme-colors, 'main');
-        padding: 10px 20px 10px 23px;
-        display: flex;
-        align-items: center;
-        color: #ffffff;
-        cursor: pointer;
-        font-weight: 600;
+        .hero__categories_all {
+            background: map.get($theme-colors, 'main');
+            padding: 10px 20px 10px 23px;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            cursor: pointer;
+            font-weight: 600;
 
-        svg,
-        span {
-            font-size: 16px;
-            margin-right: 10px;
+            svg,
+            span {
+                font-size: 16px;
+                margin-right: 10px;
+            }
+            svg {
+                font-size: 20px;
+                font-weight: bold;
+            }
         }
-        svg {
-            font-size: 20px;
-            font-weight: bold;
+        ul {
+            position: absolute;
+            opacity: 1;
+            border: 1px solid #ebebeb;
+            width: 99%;
+            background-color: #ffffff;
+            transition: all 0.2s;
+            li {
+                list-style: none;
+
+                a {
+                    text-decoration: none;
+                    background-color: transparent;
+                    font-size: 16px;
+                    line-height: 36px;
+                    color: map.get($theme-colors, 'normal-text');
+                    display: block;
+                    padding-left: 40px;
+                }
+                &:hover {
+                    background: #f7ffff;
+                    a {
+                        color: map.get($theme-colors, 'main');
+                    }
+                }
+            }
+            &.hidden {
+                opacity: 0;
+            }
         }
     }
-    ul {
-        position: absolute;
-        opacity: 1;
-        border: 1px solid #ebebeb;
-        width: 99%;
-        background-color: #ffffff;
-        transition: all 0.2s;
-        li {
-            list-style: none;
+    .hero__search_container {
+        .hero__search {
+            display: flex;
 
-            a {
-                text-decoration: none;
-                background-color: transparent;
-                font-size: 16px;
-                line-height: 36px;
-                color: map.get($theme-colors, 'normal-text');
-                display: block;
-                padding-left: 40px;
+            .hero__search__form {
+                width: 610px;
+                height: 50px;
+                float: left;
+                padding-left: 15px;
+
+                form {
+                    display: flex;
+                    align-items: center;
+                }
+
+                input {
+                    border: none;
+                    height: 40px;
+                    font-size: 14px;
+                    color: #b2b2b2;
+                    padding-left: 20px;
+                    border: 2px solid #ebebeb;
+                    width: 70%;
+
+                    &:focus {
+                        outline: none;
+                        border-color: map.get($theme-colors, 'main');
+                    }
+                }
+                button {
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    color: #ffffff;
+                    border: none;
+                    background: map.get($theme-colors, 'main');
+                    padding: 12px 14px 13px;
+                    display: inline-block;
+                    height: 100%;
+                }
             }
-            &:hover {
-                background: #f7ffff;
-                a {
+            .hero__search__phone {
+                display: flex;
+                align-items: center;
+                // width: 50%;
+
+                .hero__search__phone_icon {
+                    font-size: 21px;
+                    padding: 8px;
+                    line-height: 50px;
+                    background-color: #f5f5f5;
+                    text-align: center;
+                    border-radius: 50%;
+                    float: left;
+                    margin-right: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     color: map.get($theme-colors, 'main');
+                }
+                .hero__search__phone_text {
+                    display: inline-block;
+
+                    p {
+                        color: map.get($theme-colors, 'normal-text');
+                        font-weight: bold;
+                        margin-bottom: 2px;
+                    }
+                    span {
+                        color: #6f6f6f;
+                        font-size: 14px;
+                    }
                 }
             }
         }
-        &.hidden {
-            opacity: 0;
+        .hero__item {
+            margin-top: 10px;
+            margin-left: 15px;
+            background-image: url($bannerImg);
+            background-image: no-repeat;
+            background-size: contain;
+            height: 232px;
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+
+            .hero__item_btn {
+                margin-left: 25px;
+                margin-bottom: 50px;
+
+                a {
+                    font-size: 12px;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    padding: 10px 17px 10px;
+                    text-decoration: none;
+                    color: #ffffff;
+                    background: map.get($theme-colors, 'main');
+                }
+            }
         }
     }
 }
