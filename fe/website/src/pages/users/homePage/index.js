@@ -6,10 +6,18 @@ import item2 from 'assets/users/images/slider/item2.webp';
 import item3 from 'assets/users/images/slider/item3.webp';
 import item4 from 'assets/users/images/slider/item4.webp';
 import item5 from 'assets/users/images/slider/item5.jpg';
-import feat1 from 'assets/users/images/feature/feat1.webp';
+import feat1 from 'assets/users/images/feature/feat1.jpg';
+import feat2 from 'assets/users/images/feature/feat2.jpg';
+import feat3 from 'assets/users/images/feature/feat3.jpg';
+import feat4 from 'assets/users/images/feature/feat4.jpg';
+import banner1 from 'assets/users/images/banner/banner1.webp';
+import banner2 from 'assets/users/images/banner/banner2.webp';
 import './style.scss';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { AiOutlineEye, AiOutlineShoppingCart } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import { fomatter } from 'utils/formatter';
 
 const HomePage = () => {
     const responsive = {
@@ -63,13 +71,28 @@ const HomePage = () => {
                     name: 'Áo thun',
                     price: 200000,
                 },
+                {
+                    img: feat2,
+                    name: 'Đầm',
+                    price: 150000,
+                },
+                {
+                    img: feat3,
+                    name: 'Chân váy',
+                    price: 180000,
+                },
+                {
+                    img: feat4,
+                    name: 'Set áo váy',
+                    price: 180000,
+                },
             ],
         },
         dress: {
             title: 'Đầm',
             products: [
                 {
-                    img: feat1,
+                    img: feat2,
                     name: 'Đầm hoa nhí',
                     price: 170000,
                 },
@@ -79,8 +102,8 @@ const HomePage = () => {
             title: 'Chân váy',
             products: [
                 {
-                    img: feat1,
-                    name: 'Chân váy jeans',
+                    img: feat3,
+                    name: 'Chân váy tầng',
                     price: 170000,
                 },
             ],
@@ -94,7 +117,28 @@ const HomePage = () => {
             tabList.push(<Tab key={index}>{data[key].title}</Tab>);
             const tabPanel = [];
             data[key].products.forEach((item, x) => {
-                tabPanel.push(<div key={x}>{item.name}</div>);
+                tabPanel.push(
+                    <div className="col-lg-3 " key={x}>
+                        <div className="featured__item">
+                            <div className="featured__item_pic" style={{ backgroundImage: `url(${item.img})` }}>
+                                <ul className="featured__item_pic_hover">
+                                    <li>
+                                        <AiOutlineEye />
+                                    </li>
+                                    <li>
+                                        <AiOutlineShoppingCart />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="featured__item_text">
+                                <h6>
+                                    <Link to="">{item.name}</Link>
+                                </h6>
+                                <h5>{fomatter(item.price)}</h5>
+                            </div>
+                        </div>
+                    </div>,
+                );
             });
             tabPanels.push(tabPanel);
             console.log(tabPanels);
@@ -135,6 +179,19 @@ const HomePage = () => {
                 </div>
             </div>
             {/* Featured End */}
+
+            {/* Banner Begin  */}
+
+            <div className="container banner">
+                <div className="col-lg-6 banner__pic">
+                    <img src={banner1} alt="banner" />
+                </div>
+                <div className="col-lg-6 banner__pic">
+                    <img src={banner2} alt="banner" />
+                </div>
+            </div>
+
+            {/* Banner End  */}
         </>
     );
 };
