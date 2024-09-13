@@ -14,26 +14,68 @@
 
             p {
                 position: absolute;
-                left: 5%;
+                // left: 5%;
                 bottom: 20px;
                 font-size: 18px;
-                color: map.get($theme-colors, 'normal-text');
+                color: #f26398;
                 text-transform: uppercase;
                 font-weight: 700;
                 text-align: center;
                 letter-spacing: 2px;
                 padding: 12px 0 10px;
-                width: 270px;
+                width: 218px;
                 cursor: pointer;
+                margin-right: -5px;
 
                 &:hover {
-                    background: rgb(247 247 247);
+                    background: #f2639866;
+                    color: #ffffff;
                 }
             }
         }
         .react-multi-carousel-item:not(:first-child):not(:last-child) {
             margin-left: 5px;
             margin-right: 5px;
+        }
+    }
+}
+.featured {
+    margin-top: 50px;
+    .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+        h2 {
+            position: relative;
+        }
+
+        h2:after {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -15px;
+            height: 2px;
+            width: 80px;
+            background: map.get($theme-colors, 'main');
+            content: '';
+            margin: 0 auto;
+        }
+    }
+    .react-tabs {
+        ul {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            border-bottom: none;
+        }
+        li {
+            list-style: none;
+            font-size: 18px;
+            color: map.get($theme-colors, 'normal-text');
+            display: inline-block;
+            margin-right: 25px;
+            position: relative;
+            cursor: pointer;
+            border: none;
         }
     }
 }
