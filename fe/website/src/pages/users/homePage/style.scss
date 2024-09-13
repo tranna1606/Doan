@@ -68,8 +68,10 @@
             border-bottom: none;
         }
         li {
+            font-weight: 700;
+            text-transform: uppercase;
             list-style: none;
-            font-size: 18px;
+            font-size: 13px;
             color: map.get($theme-colors, 'normal-text');
             display: inline-block;
             margin-right: 25px;
