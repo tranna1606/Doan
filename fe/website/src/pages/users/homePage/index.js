@@ -1,12 +1,16 @@
 import { memo } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import item1 from 'assets/users/images/slider/item1.jpg';
-import item2 from 'assets/users/images/slider/item2.jpg';
-import item3 from 'assets/users/images/slider/item3.jpg';
-import item4 from 'assets/users/images/slider/item4.jpg';
+import item1 from 'assets/users/images/slider/item1.webp';
+import item2 from 'assets/users/images/slider/item2.webp';
+import item3 from 'assets/users/images/slider/item3.webp';
+import item4 from 'assets/users/images/slider/item4.webp';
 import item5 from 'assets/users/images/slider/item5.jpg';
+import feat1 from 'assets/users/images/feature/feat1.webp';
 import './style.scss';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+
 const HomePage = () => {
     const responsive = {
         superLargeDesktop: {
@@ -35,21 +39,75 @@ const HomePage = () => {
         },
         {
             bgImg: item2,
-            name: 'Chân váy',
+            name: 'Set váy',
         },
         {
             bgImg: item3,
-            name: 'Áo thun',
+            name: 'Áo kiểu',
         },
         {
             bgImg: item4,
-            name: 'Áo sơ mi',
+            name: 'Váy',
         },
         {
             bgImg: item5,
             name: 'Set áo váy',
         },
     ];
+    const featproducts = {
+        all: {
+            title: 'Toàn bộ',
+            products: [
+                {
+                    img: feat1,
+                    name: 'Áo thun',
+                    price: 200000,
+                },
+            ],
+        },
+        dress: {
+            title: 'Đầm',
+            products: [
+                {
+                    img: feat1,
+                    name: 'Đầm hoa nhí',
+                    price: 170000,
+                },
+            ],
+        },
+        skirt: {
+            title: 'Chân váy',
+            products: [
+                {
+                    img: feat1,
+                    name: 'Chân váy jeans',
+                    price: 170000,
+                },
+            ],
+        },
+    };
+    const renderfeaturedProducts = (data) => {
+        const tabList = [];
+        const tabPanels = [];
+
+        Object.keys(data).forEach((key, index) => {
+            tabList.push(<Tab key={index}>{data[key].title}</Tab>);
+            const tabPanel = [];
+            data[key].products.forEach((item, x) => {
+                tabPanel.push(<div key={x}>{item.name}</div>);
+            });
+            tabPanels.push(tabPanel);
+            console.log(tabPanels);
+        });
+        return (
+            <Tabs>
+                <TabList>{tabList}</TabList>
+                {tabPanels.map((item, index) => (
+                    <TabPanel key={index}>{item}</TabPanel>
+                ))}
+            </Tabs>
+        );
+    };
     return (
         <>
             {/* Categories Begin */}
@@ -67,6 +125,16 @@ const HomePage = () => {
                 </Carousel>
             </div>
             {/* Categories End */}
+            {/* Featured Begin */}
+            <div className="container">
+                <div className="featured">
+                    <div className="section-title">
+                        <h2>Sản phẩm nổi bật</h2>
+                    </div>
+                    {renderfeaturedProducts(featproducts)}
+                </div>
+            </div>
+            {/* Featured End */}
         </>
     );
 };
