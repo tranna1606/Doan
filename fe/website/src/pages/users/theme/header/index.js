@@ -17,6 +17,7 @@ import { fomatter } from 'utils/formatter';
 import { ROUTERS } from 'utils/router';
 const Header = () => {
     const [isShowCategories, setShowCategories] = useState(true);
+    const [isShowHumberger, setShowHumberger] = useState(false);
     const [menus, setMenus] = useState([
         {
             name: 'Trang chủ',
@@ -56,6 +57,60 @@ const Header = () => {
     ]);
     return (
         <>
+            <div
+                className={`humberger__menu_overlay ${isShowHumberger ? 'active' : ''}`}
+                onClick={() => setShowHumberger(false)}
+            ></div>
+            <div className={`humberger__menu_wrapper ${isShowHumberger ? 'show' : ''}`}>
+                <div className="header__logo">
+                    <h1>Ningni Store</h1>
+                </div>
+                <div className="header__menu_cart">
+                    <ul>
+                        <li>
+                            <Link to="">
+                                <AiOutlineShoppingCart /> <span>1</span>
+                            </Link>
+                        </li>
+                    </ul>
+                    <div className="header__cart_price">
+                        Giỏ hàng: <span>{fomatter(178000)}</span>
+                    </div>
+                </div>
+                <div className="humberger__menu_widget">
+                    <div className="header__top_right_auth">
+                        <Link to="">
+                            <AiOutlineUser /> <span>Đăng nhập</span>
+                        </Link>
+                    </div>
+                </div>
+                <div className="humberger__menu_nav">
+                    <ul>
+                        <li>Menu Item</li>
+                    </ul>
+                </div>
+                <div className="header__top_right_social">
+                    <Link to={''}>
+                        <AiFillFacebook />
+                    </Link>
+
+                    <Link to={''}>
+                        <AiFillInstagram />
+                    </Link>
+
+                    <Link to={''}>
+                        <AiFillLinkedin />
+                    </Link>
+                </div>
+                <div className="humberger__menu_contact">
+                    <ul>
+                        <li>
+                            <i className="fa fa-envelope">ningni@gmail.com</i>
+                        </li>
+                        <li>Miễn phí đơn từ {fomatter(200000)}</li>
+                    </ul>
+                </div>
+            </div>
             <div className="header__top">
                 <div className="container">
                     <div className="row">
@@ -100,12 +155,12 @@ const Header = () => {
 
             <div className="container">
                 <div className="row">
-                    <div className="col-xl-3 ">
+                    <div className="col-lg-3 ">
                         <div className="header__logo">
                             <h1>Ningni Store</h1>
                         </div>
                     </div>
-                    <div className="col-xl-6 ">
+                    <div className="col-lg-6 ">
                         <div className="header__menu">
                             <ul>
                                 {menus?.map((menu, menuKey) => (
@@ -126,7 +181,7 @@ const Header = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="col-xl-3 ">
+                    <div className="col-lg-3 ">
                         <div className="header__cart">
                             <div className="header__cart_price">
                                 <span>{fomatter(1120000)}</span>
@@ -138,6 +193,13 @@ const Header = () => {
                                     <span>5</span>
                                 </li>
                             </ul>
+                        </div>
+                        <div className="humberger__open">
+                            <AiOutlineMenu
+                                onClick={() => {
+                                    setShowHumberger(true);
+                                }}
+                            />
                         </div>
                     </div>
                 </div>

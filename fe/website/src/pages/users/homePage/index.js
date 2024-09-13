@@ -184,10 +184,10 @@ const HomePage = () => {
 
             <div className="container banner">
                 <div className="col-lg-6 banner__pic">
-                    <img src={banner1} alt="banner" />
+                    <img src={banner2} alt="banner" />
                 </div>
                 <div className="col-lg-6 banner__pic">
-                    <img src={banner2} alt="banner" />
+                    <img src={banner1} alt="banner" />
                 </div>
             </div>
 
