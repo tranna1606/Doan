@@ -84,78 +84,78 @@
         display: flex;
         column-gap: 10px;
     }
-    .featured__item {
-        margin-bottom: 50px;
+    // .featured__item {
+    //     margin-bottom: 50px;
 
-        .featured__item_pic {
-            border-radius: 5px;
-            height: 195px;
-            position: relative;
-            overflow: hidden;
-            background-position: center;
-            background-size: cover;
+    //     .featured__item_pic {
+    //         border-radius: 5px;
+    //         height: 195px;
+    //         position: relative;
+    //         overflow: hidden;
+    //         background-position: center;
+    //         background-size: cover;
 
-            .featured__item_pic_hover {
-                transition: all 0.3s;
-                position: absolute;
-                left: 0;
-                bottom: -45%;
-                text-align: center;
-                width: 100%;
+    //         .featured__item_pic_hover {
+    //             transition: all 0.3s;
+    //             position: absolute;
+    //             left: 0;
+    //             bottom: -45%;
+    //             text-align: center;
+    //             width: 100%;
 
-                li {
-                    display: inline-block;
-                    list-style: none;
+    //             li {
+    //                 display: inline-block;
+    //                 list-style: none;
 
-                    svg {
-                        padding: 10px;
-                        width: 20px;
-                        height: 20px;
-                        line-height: 20px;
-                        font-size: 16px;
-                        text-align: center;
-                        border-radius: 50%;
-                        display: inline-block;
-                        transition: all 0.3s;
-                    }
-                    &:hover {
-                        svg {
-                            background-color: #f2acc6;
-                            color: white;
-                            border-color: #f2acc6;
-                            transform: rotate(360deg);
-                        }
-                    }
-                }
-            }
+    //                 svg {
+    //                     padding: 10px;
+    //                     width: 20px;
+    //                     height: 20px;
+    //                     line-height: 20px;
+    //                     font-size: 16px;
+    //                     text-align: center;
+    //                     border-radius: 50%;
+    //                     display: inline-block;
+    //                     transition: all 0.3s;
+    //                 }
+    //                 &:hover {
+    //                     svg {
+    //                         background-color: #f2acc6;
+    //                         color: white;
+    //                         border-color: #f2acc6;
+    //                         transform: rotate(360deg);
+    //                     }
+    //                 }
+    //             }
+    //         }
 
-            &:hover {
-                .featured__item_pic_hover {
-                    bottom: -20%;
-                }
-            }
-        }
-        .featured__item_text {
-            margin-top: 10px;
-            text-align: center;
+    //         &:hover {
+    //             .featured__item_pic_hover {
+    //                 bottom: -20%;
+    //             }
+    //         }
+    //     }
+    //     .featured__item_text {
+    //         margin-top: 10px;
+    //         text-align: center;
 
-            h6 {
-                font-size: 16px;
-                font-weight: 400;
-                a {
-                    text-decoration: none;
-                    color: map.get($theme-colors, 'normal-text');
-                }
-            }
+    //         h6 {
+    //             font-size: 16px;
+    //             font-weight: 400;
+    //             a {
+    //                 text-decoration: none;
+    //                 color: map.get($theme-colors, 'normal-text');
+    //             }
+    //         }
 
-            h5 {
-                font-size: 18px;
-                font-weight: 700;
-                color: map.get($theme-colors, 'normal-text');
-                margin-top: 10px;
-            }
-        }
-    }
+    //         h5 {
+    //             font-size: 18px;
+    //             font-weight: 700;
+    //             color: map.get($theme-colors, 'normal-text');
+    //             margin-top: 10px;
+    //         }
+    //     }
+    // }
 }
 .banner {
     display: flex;

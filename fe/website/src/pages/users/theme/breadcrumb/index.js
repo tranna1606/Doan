@@ -7,7 +7,7 @@ const Breadcrumb = (props) => {
     return (
         <div className="breadcrumb">
             <div className="breadcrumb__text">
-                <h2>Ningni Store</h2>
+                <h3>Ningni Store</h3>
                 <div className="breadcrumb__option">
                     <ul>
                         <li className="link">
