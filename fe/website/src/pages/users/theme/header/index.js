@@ -4,13 +4,15 @@ import {
     AiFillFacebook,
     AiFillInstagram,
     AiFillLinkedin,
-    AiFillTwitterSquare,
+    AiOutlineDownCircle,
     AiOutlineMenu,
     AiOutlinePhone,
     AiOutlineShoppingCart,
+    AiOutlineUpCircle,
     AiOutlineUser,
     AiTwotoneMail,
 } from 'react-icons/ai';
+import { FaRegEnvelope } from 'react-icons/fa';
 
 import { Link } from 'react-router-dom';
 import { fomatter } from 'utils/formatter';
@@ -86,7 +88,35 @@ const Header = () => {
                 </div>
                 <div className="humberger__menu_nav">
                     <ul>
-                        <li>Menu Item</li>
+                        {menus.map((menu, menuKey) => (
+                            <li key={menuKey} to={menu.path}>
+                                <Link
+                                    to={menu.path}
+                                    onClick={() => {
+                                        const newMenus = [...menus];
+                                        newMenus[menuKey].isShowSubMenu = !newMenus[menuKey].isShowSubMenu;
+                                        setMenus(newMenus);
+                                    }}
+                                >
+                                    {menu.name}
+                                    {menu.children &&
+                                        (menu.isShowSubMenu ? <AiOutlineDownCircle /> : <AiOutlineUpCircle />)}
+                                </Link>
+                                {menu.children && (
+                                    <ul
+                                        className={`header__menu__dropdown  ${
+                                            menu.isShowSubMenu ? 'show__submenu' : ''
+                                        }`}
+                                    >
+                                        {menu.children.map((childItem, childKey) => (
+                                            <li key={childKey}>
+                                                <Link to={childItem.path}>{childItem.name}</Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </li>
+                        ))}
                     </ul>
                 </div>
                 <div className="header__top_right_social">
@@ -105,7 +135,8 @@ const Header = () => {
                 <div className="humberger__menu_contact">
                     <ul>
                         <li>
-                            <i className="fa fa-envelope">ningni@gmail.com</i>
+                            <FaRegEnvelope />
+                            ningni@gmail.com
                         </li>
                         <li>Miễn phí đơn từ {fomatter(200000)}</li>
                     </ul>
