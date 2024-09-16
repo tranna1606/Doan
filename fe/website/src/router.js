@@ -1,5 +1,6 @@
 import HomePage from './pages/users/homePage';
 import ProfilePage from './pages/users/ProfilePage';
+import ProductsPage from './pages/users/productsPage';
 import MasterLayout from './pages/users/theme/masterLayout';
 import { ROUTERS } from './utils/router';
 import { Route, Routes } from 'react-router-dom';
@@ -13,6 +14,10 @@ const renderUserRouter = () => {
         {
             path: ROUTERS.USER.PROFILE,
             component: <ProfilePage />,
+        },
+        {
+            path: ROUTERS.USER.PRODUCTS,
+            component: <ProductsPage />,
         },
     ];
     return (

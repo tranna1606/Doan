@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import './header.scss';
 import {
     AiFillFacebook,
@@ -14,12 +14,15 @@ import {
 } from 'react-icons/ai';
 import { FaRegEnvelope } from 'react-icons/fa';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { fomatter } from 'utils/formatter';
 import { ROUTERS } from 'utils/router';
 const Header = () => {
-    const [isShowCategories, setShowCategories] = useState(true);
+    const location = useLocation();
+    const [isHome, setIsHome] = useState(location.pathname.length <= 1); //do trang home kh có gì
+
     const [isShowHumberger, setShowHumberger] = useState(false);
+    const [isShowCategories, setShowCategories] = useState(isHome);
     const [menus, setMenus] = useState([
         {
             name: 'Trang chủ',
@@ -57,6 +60,13 @@ const Header = () => {
             path: '',
         },
     ]);
+    const categories = ['Đầm', 'Áo sơ mi', 'Quần', 'Áo thun', 'Áo khoác', 'Chân váy'];
+
+    useEffect(() => {
+        const isHome = location.pathname.length <= 1;
+        setIsHome(isHome);
+        setShowCategories(isHome);
+    }, [location]);
     return (
         <>
             <div
@@ -250,24 +260,11 @@ const Header = () => {
                         </div>
 
                         <ul className={isShowCategories ? '' : 'hidden'}>
-                            <li>
-                                <Link to={'#'}> Đầm </Link>
-                            </li>
-                            <li>
-                                <Link to={'#'}> Áo sơ mi </Link>
-                            </li>
-                            <li>
-                                <Link to={'#'}> Quần </Link>
-                            </li>
-                            <li>
-                                <Link to={'#'}> Áo thun </Link>
-                            </li>
-                            <li>
-                                <Link to={'#'}>Áo khoác </Link>
-                            </li>
-                            <li>
-                                <Link to={'#'}> Chân váy </Link>
-                            </li>
+                            {categories.map((category, index) => (
+                                <li key={index}>
+                                    <Link to={ROUTERS.USER.PRODUCTS}> {category} </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                     <div className=" col-lg-9 hero__search_container">
@@ -289,13 +286,15 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="hero__item">
-                            <div className="hero__item_btn">
-                                <Link to="" className="primary-btn">
-                                    Mua ngay
-                                </Link>
+                        {isHome && (
+                            <div className="hero__item">
+                                <div className="hero__item_btn">
+                                    <Link to="" className="primary-btn">
+                                        Mua ngay
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </div>
             </div>
