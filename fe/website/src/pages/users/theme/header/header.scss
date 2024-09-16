@@ -1,4 +1,5 @@
 @use 'sass:map';
+@import 'style/pages/all';
 @import 'style/pages/theme';
 @import 'style/pages/_responsive';
 $bannerImg: '/assets/users/images/hero/banner.webp';
@@ -316,6 +317,9 @@ $bannerImg: '/assets/users/images/hero/banner.webp';
         }
     }
 }
+.humberger__menu_wrapper {
+    display: none;
+}
 @include Responsive($TABLET_DEVICE) {
     .header__top,
     .header__menu,
@@ -349,6 +353,56 @@ $bannerImg: '/assets/users/images/hero/banner.webp';
             opacity: 1;
             z-index: 9999;
         }
+
+        .header__menu_cart {
+            display: flex;
+            align-items: center;
+            .header__cart_price {
+                color: #6f6f6f;
+                font-size: 14px;
+
+                span {
+                    color: map.get($theme-colors, 'normal-text');
+                    font-weight: 700;
+                }
+            }
+            ul {
+                list-style: none;
+                display: inline-block;
+                margin-right: 15px;
+
+                li:last-child {
+                    margin-right: 0;
+                }
+
+                li {
+                    position: relative;
+
+                    a {
+                        color: map.get($theme-colors, 'normal-text');
+                        font-size: 18px;
+                        svg {
+                        }
+                        span {
+                            position: absolute;
+                            background: map.get($theme-colors, 'main');
+                            color: white;
+                            height: 20px;
+                            // width: 20px;
+                            left: 11px;
+                            top: -10px;
+                            border-radius: 40px;
+                            line-height: 20px;
+                            display: inline-block;
+                            font-size: 13px;
+                            text-align: center;
+                            font-weight: 500;
+                            padding: 0 7px;
+                        }
+                    }
+                }
+            }
+        }
     }
     .humberger__menu_overlay {
         position: fixed;
@@ -362,6 +416,80 @@ $bannerImg: '/assets/users/images/hero/banner.webp';
         transition: all 0.6s;
         &.active {
             visibility: visible;
+        }
+    }
+
+    .humberger__menu_widget {
+        margin-bottom: 20px;
+
+        .header__top_right_auth a {
+            display: block;
+            font-size: 14px;
+            color: map.get($theme-colors, 'normal-text');
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+    .humberger__menu_nav {
+        margin-bottom: 20px;
+
+        ul {
+            list-style: none;
+            li {
+                padding: 8px 0;
+                border-bottom: 1px solid #e1e1e1;
+                a {
+                    color: map.get($theme-colors, 'normal-text');
+                    font-size: 16px;
+                    font-weight: 500;
+                    text-decoration: none;
+                    svg {
+                        vertical-align: middle;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+        .header__menu__dropdown {
+            display: none;
+            padding: 5px 0;
+
+            li {
+                margin-left: 10px;
+                display: block;
+                margin-right: 0;
+
+                &:last-child {
+                    border-bottom: unset;
+                }
+            }
+        }
+        .show__submenu {
+            display: block;
+        }
+    }
+    .header__top_right_social {
+        display: block;
+        margin-bottom: 20px;
+        margin-right: 0;
+
+        a {
+            font-size: 14px;
+            color: map.get($theme-colors, 'normal-text');
+            display: inline-block;
+            margin-right: 25px;
+            svg {
+                font-size: 20px;
+            }
+        }
+    }
+    .humberger__menu_contact {
+        ul li {
+            display: inline-block;
+            font-size: 14px;
+            color: map.get($theme-colors, 'normal-text');
+            margin-bottom: 10px;
         }
     }
 }
