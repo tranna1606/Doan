@@ -17,6 +17,7 @@ import { FaRegEnvelope } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 import { fomatter } from 'utils/formatter';
 import { ROUTERS } from 'utils/router';
+export const categories = ['Đầm', 'Áo sơ mi', 'Quần', 'Áo thun', 'Áo khoác', 'Chân váy'];
 const Header = () => {
     const location = useLocation();
     const [isHome, setIsHome] = useState(location.pathname.length <= 1); //do trang home kh có gì
@@ -60,7 +61,7 @@ const Header = () => {
             path: '',
         },
     ]);
-    const categories = ['Đầm', 'Áo sơ mi', 'Quần', 'Áo thun', 'Áo khoác', 'Chân váy'];
+  
 
     useEffect(() => {
         const isHome = location.pathname.length <= 1;

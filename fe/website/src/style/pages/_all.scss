@@ -31,6 +31,24 @@ body {
     border: none;
     height: 100%;
 }
+input,
+textarea {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #ebebeb;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #b2b2b2;
+    border-radius: 3px;
+    margin-top: 10px;
+
+    &:focus {
+        outline: none;
+    }
+}
+textarea {
+    padding-top: 10px;
+}
 .row {
     display: flex;
     flex-wrap: wrap;
