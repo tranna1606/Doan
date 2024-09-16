@@ -16,6 +16,8 @@ body {
 .container {
     max-width: 870px;
     width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
     padding-left: 15px;
     padding-right: 15px;
     margin: auto;
@@ -40,7 +42,6 @@ textarea {
     font-size: 14px;
     color: #b2b2b2;
     border-radius: 3px;
-    margin-top: 10px;
 
     &:focus {
         outline: none;
@@ -60,6 +61,10 @@ textarea {
 .col-lg-3 {
     flex: 0 0 25%;
     max-width: 25%;
+}
+.col-lg-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
 }
 .col-lg-6 {
     flex: 0 0 50%;

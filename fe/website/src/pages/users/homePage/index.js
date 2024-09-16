@@ -15,9 +15,8 @@ import banner2 from 'assets/users/images/banner/banner2.webp';
 import './style.scss';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { AiOutlineEye, AiOutlineShoppingCart } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
-import { fomatter } from 'utils/formatter';
+
+import ProductCard from 'component/ProductCard';
 
 const HomePage = () => {
     const responsive = {
@@ -118,25 +117,8 @@ const HomePage = () => {
             const tabPanel = [];
             data[key].products.forEach((item, x) => {
                 tabPanel.push(
-                    <div className="col-lg-3 " key={x}>
-                        <div className="featured__item">
-                            <div className="featured__item_pic" style={{ backgroundImage: `url(${item.img})` }}>
-                                <ul className="featured__item_pic_hover">
-                                    <li>
-                                        <AiOutlineEye />
-                                    </li>
-                                    <li>
-                                        <AiOutlineShoppingCart />
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="featured__item_text">
-                                <h6>
-                                    <Link to="">{item.name}</Link>
-                                </h6>
-                                <h5>{fomatter(item.price)}</h5>
-                            </div>
-                        </div>
+                    <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 " key={x}>
+                        <ProductCard name={item.name} img={item.img} price={item.price} />
                     </div>,
                 );
             });
