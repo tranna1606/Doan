@@ -164,7 +164,7 @@ $bannerImg: '/assets/users/images/hero/banner.webp';
 
         .hero__categories_all {
             background: map.get($theme-colors, 'main');
-            padding: 10px 20px 10px 23px;
+            padding: 10px 10px 10px 12px;
             display: flex;
             align-items: center;
             color: #ffffff;
@@ -317,9 +317,11 @@ $bannerImg: '/assets/users/images/hero/banner.webp';
         }
     }
 }
+.humberger__open,
 .humberger__menu_wrapper {
     display: none;
 }
+
 @include Responsive($TABLET_DEVICE) {
     .header__top,
     .header__menu,
