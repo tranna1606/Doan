@@ -4,6 +4,7 @@ import ProductsPage from './pages/users/productsPage';
 import MasterLayout from './pages/users/theme/masterLayout';
 import { ROUTERS } from './utils/router';
 import { Route, Routes } from 'react-router-dom';
+import ProductDetailPage from 'pages/users/productDetailPage';
 
 const renderUserRouter = () => {
     const userRouters = [
@@ -18,6 +19,10 @@ const renderUserRouter = () => {
         {
             path: ROUTERS.USER.PRODUCTS,
             component: <ProductsPage />,
+        },
+        {
+            path: ROUTERS.USER.PRODUCT,
+            component: <ProductDetailPage />,
         },
     ];
     return (
