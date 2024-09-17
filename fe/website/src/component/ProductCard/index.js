@@ -2,9 +2,10 @@ import { memo } from 'react';
 import { fomatter } from 'utils/formatter';
 import './productcard.scss';
 
-import { Link } from 'react-router-dom';
+import { generatePath, Link } from 'react-router-dom';
 import { AiOutlineEye } from 'react-icons/ai';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { ROUTERS } from 'utils/router';
 const ProductCard = ({ img, name, price }) => {
     return (
         <>
@@ -21,7 +22,7 @@ const ProductCard = ({ img, name, price }) => {
                 </div>
                 <div className="featured__item_text">
                     <h6>
-                        <Link to="">{name}</Link>
+                        <Link to={generatePath(ROUTERS.USER.PRODUCT, { id: 1 })}>{name}</Link>
                     </h6>
                     <h5>{fomatter(price)}</h5>
                 </div>

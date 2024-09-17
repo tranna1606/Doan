@@ -1,0 +1,69 @@
+@use 'sass:map';
+@import 'style/pages/all';
+
+.product__detail_pic {
+    display: flex;
+    column-gap: 10px;
+
+    img {
+        flex: 0 0 65%;
+        object-fit: cover;
+        width: 300px;
+    }
+
+    .main {
+        flex: 0 0 35%;
+        display: grid;
+        align-items: stretch;
+
+        img {
+            width: 60%;
+            object-fit: cover;
+
+            &:not(:first-child) {
+                padding-top: 5px;
+            }
+        }
+    }
+}
+.product__detail_text {
+    h3 {
+        color: #252525;
+        font-weight: 700;
+    }
+    .seen-icon {
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        line-height: 30px;
+        column-gap: 5px;
+    }
+    p {
+        margin-top: 10px 0;
+        line-height: 25px;
+    }
+    ul {
+        margin: 10px 0;
+        border-top: 1px solid #eee;
+        padding-top: 10px;
+        li {
+            list-style: none;
+            display: flex;
+            column-gap: 20px;
+            line-height: 35px;
+            b {
+                width: 100px;
+            }
+            span {
+                display: flex;
+                align-items: center;
+                column-gap: 10px;
+
+                svg {
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
