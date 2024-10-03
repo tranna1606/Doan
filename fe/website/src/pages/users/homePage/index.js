@@ -6,10 +6,7 @@ import item2 from 'assets/users/images/slider/item2.webp';
 import item3 from 'assets/users/images/slider/item3.webp';
 import item4 from 'assets/users/images/slider/item4.webp';
 import item5 from 'assets/users/images/slider/item5.jpg';
-import feat1 from 'assets/users/images/feature/feat1.jpg';
-import feat2 from 'assets/users/images/feature/feat2.jpg';
-import feat3 from 'assets/users/images/feature/feat3.jpg';
-import feat4 from 'assets/users/images/feature/feat4.jpg';
+
 import banner1 from 'assets/users/images/banner/banner1.webp';
 import banner2 from 'assets/users/images/banner/banner2.webp';
 import './style.scss';
@@ -17,6 +14,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
 import ProductCard from 'component/ProductCard';
+import { featproducts } from 'utils/common';
 
 const HomePage = () => {
     const responsive = {
@@ -61,53 +59,7 @@ const HomePage = () => {
             name: 'Set áo váy',
         },
     ];
-    const featproducts = {
-        all: {
-            title: 'Toàn bộ',
-            products: [
-                {
-                    img: feat1,
-                    name: 'Áo thun',
-                    price: 200000,
-                },
-                {
-                    img: feat2,
-                    name: 'Đầm',
-                    price: 150000,
-                },
-                {
-                    img: feat3,
-                    name: 'Chân váy',
-                    price: 180000,
-                },
-                {
-                    img: feat4,
-                    name: 'Set áo váy',
-                    price: 180000,
-                },
-            ],
-        },
-        dress: {
-            title: 'Đầm',
-            products: [
-                {
-                    img: feat2,
-                    name: 'Đầm hoa nhí',
-                    price: 170000,
-                },
-            ],
-        },
-        skirt: {
-            title: 'Chân váy',
-            products: [
-                {
-                    img: feat3,
-                    name: 'Chân váy tầng',
-                    price: 170000,
-                },
-            ],
-        },
-    };
+
     const renderfeaturedProducts = (data) => {
         const tabList = [];
         const tabPanels = [];
@@ -154,7 +106,7 @@ const HomePage = () => {
             {/* Featured Begin */}
             <div className="container">
                 <div className="featured">
-                    <div className="section-title">
+                    <div className="section__title">
                         <h2>Sản phẩm nổi bật</h2>
                     </div>
                     {renderfeaturedProducts(featproducts)}
