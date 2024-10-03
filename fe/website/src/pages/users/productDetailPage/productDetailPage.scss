@@ -67,3 +67,32 @@
         }
     }
 }
+.product__detail_tab {
+    margin: 20px 20px;
+
+    h4 {
+        text-align: center;
+        position: relative;
+        margin-bottom: 20px;
+
+        &::after {
+            position: absolute;
+            content: '';
+            right: 0;
+            top: 12px;
+            width: 41%;
+            height: 1px;
+            background-color: #ebebeb;
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 12px;
+            width: 41%;
+            height: 1px;
+            background-color: #ebebeb;
+        }
+    }
+}
