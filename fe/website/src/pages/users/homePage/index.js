@@ -6,7 +6,6 @@ import item2 from 'assets/users/images/slider/item2.webp';
 import item3 from 'assets/users/images/slider/item3.webp';
 import item4 from 'assets/users/images/slider/item4.webp';
 import item5 from 'assets/users/images/slider/item5.jpg';
-
 import banner1 from 'assets/users/images/banner/banner1.webp';
 import banner2 from 'assets/users/images/banner/banner2.webp';
 import './style.scss';
@@ -14,9 +13,11 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
 import ProductCard from 'component/ProductCard';
-import { featproducts } from 'utils/common';
+import { useFeatProducts } from 'hook/useFeatProducts';
+// import { featproducts } from 'utils/common';
 
 const HomePage = () => {
+    const featproducts = useFeatProducts()
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.

@@ -1,0 +1,50 @@
+.article {
+    display: flex;
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    &-image {
+        width: 150px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    &-content {
+        padding: 16px;
+
+        &-title {
+            font-size: 18px;
+            margin: 8px 0;
+        }
+
+        &-date {
+            font-size: 14px;
+            color: #888;
+        }
+
+        &-description {
+            font-size: 16px;
+            margin: 12px 0;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            color:#d37171 ;
+            text-decoration: none;
+            transition: color 0.3s;
+
+            &:hover {
+                color: #f26398;
+            }
+        }
+    }
+    .article-date{
+        margin: 10px 0px;
+        color: #808080;
+        
+    }
+}

@@ -5,6 +5,8 @@ import MasterLayout from './pages/users/theme/masterLayout';
 import { ROUTERS } from './utils/router';
 import { Route, Routes } from 'react-router-dom';
 import ProductDetailPage from 'pages/users/productDetailPage';
+import CartPage from 'pages/users/CartPage';
+import ArticlesList from 'pages/users/ArticlePage/ArticleList/ArticleList';
 
 const renderUserRouter = () => {
     const userRouters = [
@@ -23,6 +25,14 @@ const renderUserRouter = () => {
         {
             path: ROUTERS.USER.PRODUCT,
             component: <ProductDetailPage />,
+        },
+        {
+            path: ROUTERS.USER.CART,
+            component: <CartPage />,
+        },
+        {
+            path: ROUTERS.USER.ARTICLE,
+            component: <ArticlesList />,
         },
     ];
     return (
