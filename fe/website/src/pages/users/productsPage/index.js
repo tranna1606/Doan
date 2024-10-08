@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import Breadcrumb from '../theme/breadcrumb';
 import './style.scss';
-import { categories } from '../theme/header';
 import { ROUTERS } from 'utils/router';
 import { Link } from 'react-router-dom';
 import feat1 from 'assets/users/images/feature/feat1.jpg';
@@ -9,7 +8,9 @@ import feat2 from 'assets/users/images/feature/feat2.jpg';
 import feat3 from 'assets/users/images/feature/feat3.jpg';
 import feat4 from 'assets/users/images/feature/feat4.jpg';
 import { ProductCard } from 'component';
+import { useCategories } from 'hook/useCategories';
 const ProductsPage = () => {
+    const categories = useCategories();
     const products = [
         {
             img: feat1,
@@ -67,9 +68,9 @@ const ProductsPage = () => {
                                 <h3>Thể loại khác</h3>
                                 <div className="product__list">
                                     <ul>
-                                        {categories.map((name, key) => (
-                                            <li key={key}>
-                                                <Link to={ROUTERS.USER.PRODUCTS}>{name}</Link>
+                                        {categories.map((category) => (
+                                            <li key={category.id}>
+                                                <Link to={ROUTERS.USER.PRODUCTS}>{category.name}</Link>
                                             </li>
                                         ))}
                                     </ul>

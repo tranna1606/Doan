@@ -1,0 +1,126 @@
+{
+    "categories":[
+        {
+            "id": 1,
+            "name": "Đầm"
+        },
+        {
+            "id": 2,
+            "name": "Áo sơ mi"
+        },
+        {
+            "id": 3,
+            "name": "Quần"
+        },
+        {
+            "id": 4,
+            "name": "Áo thun"
+        },
+        {
+            "id": 5,
+            "name": "Ác khoác"
+        },
+        {
+            "id": 6,
+            "name": "Chân váy"
+        }
+    ],
+    "products":[
+        {
+            "id": 1,
+            "name": "Áo thun cổ V",
+            "price": 200000,
+            "cat_id": 4,
+            "image": "https://i.pinimg.com/564x/ab/03/89/ab03893c3a83bbbbc2e57f3ed1d9b365.jpg",
+            "quantity": 10
+        },
+        {
+           "id": 2,
+            "name": "Đầm dáng xòe",
+            "price": 250000,
+            "cat_id": 1,
+            "image": "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/461605209_955685083272721_6772750334680970427_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=CfwqolPT9QUQ7kNvgHwf9RS&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=ALIj7l3kYXnR7WTtvpl5FJC&oh=00_AYCvYyM4yJYQ2OkFtN1UDWvPeujszxhvGMA6ZbC_jjGPiQ&oe=6708BC36",
+            "quantity": 10
+        },
+        {
+            "id": 3,
+            "name": "Chân váy xếp ly",
+            "price": 180000,
+            "cat_id": 6,
+            "image":"https://i.pinimg.com/564x/c9/a8/df/c9a8dfe4388a838a50f1aded15739bf5.jpg",
+            "quantity": 10
+        },
+        {
+            "id": 4,
+            "name": "Áo sơ mi",
+            "price": 120000,
+            "cat_id": 2,
+            "image":"https://i.pinimg.com/564x/3f/04/cc/3f04ccfb0cec55c073e32efb8b3e2d87.jpg",
+            "quantity": 10
+        },
+        {
+            "id": 5,
+            "name": "Quần jeans đùi",
+            "price": 250000,
+            "cat_id": 3,
+            "image":"https://i.pinimg.com/564x/4b/6d/c3/4b6dc3dee71fa18a7811132e2a99bd40.jpg",
+            "quantity": 10
+        },
+        {
+            "id": 6,
+            "name": "Áo khoác da",
+            "price": 270000,
+            "cat_id": 5,
+            "image": "https://i.pinimg.com/564x/de/15/44/de1544bf8d0ad41c2051b23e21f207be.jpg",
+            "quantity": 10
+        }
+    ],
+    
+        "featproducts": {
+          "all": {
+            "title": "Toàn bộ",
+            "products": [
+              {
+                "img": "https://i.pinimg.com/564x/ab/03/89/ab03893c3a83bbbbc2e57f3ed1d9b365.jpg",
+                "name": "Áo thun",
+                "price": 200000
+              },
+              {
+                "img": "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/461605209_955685083272721_6772750334680970427_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=CfwqolPT9QUQ7kNvgHwf9RS&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=ALIj7l3kYXnR7WTtvpl5FJC&oh=00_AYCvYyM4yJYQ2OkFtN1UDWvPeujszxhvGMA6ZbC_jjGPiQ&oe=6708BC36",
+                "name": "Đầm",
+                "price": 150000
+              },
+              {
+                "img": "https://i.pinimg.com/564x/c9/a8/df/c9a8dfe4388a838a50f1aded15739bf5.jpg",
+                "name": "Chân váy",
+                "price": 180000
+              },
+              {
+                "img": "https://i.pinimg.com/736x/b9/81/73/b981738137462f4227e9621ab5165c61.jpg",
+                "name": "Set áo váy",
+                "price": 180000
+              }
+            ]
+          },
+          "dress": {
+            "title": "Đầm",
+            "products": [
+              {
+                "img": "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/461605209_955685083272721_6772750334680970427_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=CfwqolPT9QUQ7kNvgHwf9RS&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=ALIj7l3kYXnR7WTtvpl5FJC&oh=00_AYCvYyM4yJYQ2OkFtN1UDWvPeujszxhvGMA6ZbC_jjGPiQ&oe=6708BC36",
+                "name": "Đầm hoa nhí",
+                "price": 170000
+              }
+            ]
+          },
+          "skirt": {
+            "title": "Chân váy",
+            "products": [
+              {
+                "img": "https://i.pinimg.com/564x/c9/a8/df/c9a8dfe4388a838a50f1aded15739bf5.jpg",
+                "name": "Chân váy tầng",
+                "price": 170000
+              }
+            ]
+          }
+        }
+}

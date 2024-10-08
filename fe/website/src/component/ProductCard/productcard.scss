@@ -28,6 +28,9 @@
             li {
                 display: inline-block;
                 list-style: none;
+                a{
+                    color: inherit
+                }
 
                 svg {
                     padding: 10px;

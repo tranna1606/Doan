@@ -1,4 +1,5 @@
 import { memo, useEffect, useState } from 'react';
+import React from 'react';
 import './header.scss';
 import {
     AiFillFacebook,
@@ -13,17 +14,25 @@ import {
     AiTwotoneMail,
 } from 'react-icons/ai';
 import { FaRegEnvelope } from 'react-icons/fa';
-
 import { Link, useLocation } from 'react-router-dom';
 import { fomatter } from 'utils/formatter';
 import { ROUTERS } from 'utils/router';
-export const categories = ['Đầm', 'Áo sơ mi', 'Quần', 'Áo thun', 'Áo khoác', 'Chân váy'];
+import { useGoogleLogin } from '@react-oauth/google';
+import axios from 'axios';
+import { useCategories } from 'hook/useCategories';
+import "tippy.js/dist/tippy.css";
+
 const Header = () => {
+    const [user, setUser] = useState(null);
+    const categories = useCategories()
     const location = useLocation();
     const [isHome, setIsHome] = useState(location.pathname.length <= 1); //do trang home kh có gì
-
     const [isShowHumberger, setShowHumberger] = useState(false);
     const [isShowCategories, setShowCategories] = useState(isHome);
+    const [searchValue, setSearchValue] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+    const [showResults, setShowResults] = useState(false);
+   
     const [menus, setMenus] = useState([
         {
             name: 'Trang chủ',
@@ -54,7 +63,8 @@ const Header = () => {
         },
         {
             name: 'Bài Viết',
-            path: '',
+            path: ROUTERS.USER.ARTICLE,
+            
         },
         {
             name: 'Liên hệ',
@@ -68,8 +78,28 @@ const Header = () => {
         setIsHome(isHome);
         setShowCategories(isHome);
     }, [location]);
+    
+
+    const handleLogin = useGoogleLogin({
+        onSuccess: async(response) => {
+            try {
+                const res = await axios.get(
+                    "https://www.googleapis.com/oauth2/v3/userinfo",
+                    {headers:{
+                        Authorization : `Bearer ${response.access_token}`
+                    },
+                }
+                );
+                setUser(res.data);
+                console.log(res.data)
+            }catch(err){
+                console.log(err);
+            }
+            },
+        });
     return (
         <>
+            
             <div
                 className={`humberger__menu_overlay ${isShowHumberger ? 'active' : ''}`}
                 onClick={() => setShowHumberger(false)}
@@ -92,9 +122,10 @@ const Header = () => {
                 </div>
                 <div className="humberger__menu_widget">
                     <div className="header__top_right_auth">
-                        <Link to="">
-                            <AiOutlineUser /> <span>Đăng nhập</span>
-                        </Link>
+                        {/* <button onClick={handleLogin}>Đăng nhập</button> */}
+                        {/* <Link to={handleLogin}>
+                            <AiOutlineUser /> <span></span>
+                        </Link> */}
                     </div>
                 </div>
                 <div className="humberger__menu_nav">
@@ -166,7 +197,7 @@ const Header = () => {
                             </ul>
                         </div>
                         <div className="col-6 header__top_right">
-                            <ul>
+                            <ul className='header-right'>
                                 <li>
                                     <Link to={''}>
                                         <AiFillFacebook />
@@ -184,10 +215,19 @@ const Header = () => {
                                 </li>
 
                                 <li>
-                                    <Link to={''}>
-                                        <AiOutlineUser />
-                                    </Link>
-                                    <span>Đăng nhập</span>
+                                   
+                                    {user ? (
+                                        <img  className="avatar" src={user.picture} alt='User Avatar'/>
+                                    ): (
+                                        <div className= "login-container">
+                                            <Link to= "">
+                                                <AiOutlineUser />
+                                            </Link>
+                                        <button className= "btn-login" onClick={handleLogin}>Đăng nhập</button>
+                                        </div>
+                                        
+                                    )}
+                                    
                                 </li>
                             </ul>
                         </div>
@@ -230,9 +270,11 @@ const Header = () => {
                             </div>
                             <ul>
                                 <li>
-                                    <Link to="#" />
-                                    <AiOutlineShoppingCart />
-                                    <span>5</span>
+                                    <Link to={ROUTERS.USER.CART} >
+                                        <AiOutlineShoppingCart />
+                                        <span>5</span>
+                                    </Link>
+                                    
                                 </li>
                             </ul>
                         </div>
@@ -261,9 +303,9 @@ const Header = () => {
                         </div>
 
                         <ul className={isShowCategories ? '' : 'hidden'}>
-                            {categories.map((category, index) => (
-                                <li key={index}>
-                                    <Link to={ROUTERS.USER.PRODUCTS}> {category} </Link>
+                            {categories.map((category) => (
+                                <li key={category.id}>
+                                    <Link to={ROUTERS.USER.PRODUCTS}> {category.name} </Link>
                                 </li>
                             ))}
                         </ul>
@@ -271,8 +313,13 @@ const Header = () => {
                     <div className=" col-lg-9 hero__search_container">
                         <div className="hero__search">
                             <div className=" col-lg-9 hero__search__form">
+                                {/* Thanh tìm kiếm */}
                                 <form>
-                                    <input type="text" placeholder="Bạn đang tìm gì? " />
+                                <input
+                                    type="text"
+                                    placeholder="Bạn đang tìm gì?"
+                                    
+                                />
                                     <button type="submit">Tìm kiếm</button>
                                 </form>
                             </div>
@@ -299,6 +346,16 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+
+            {/* <GoogleLogin
+            onSuccess={credentialResponse => {
+            const credentialResponseDecoded = jwtDecode(credentialResponse.credential);
+            console.log(credentialResponseDecoded);
+                }}
+                onError={() => {
+                    console.log('Login Failed');
+                }}
+            /> */}
         </>
     );
 };
