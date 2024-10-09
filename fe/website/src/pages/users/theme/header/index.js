@@ -1,5 +1,5 @@
-import { memo, useEffect, useState } from 'react';
-import React from 'react';
+import { memo} from 'react';
+import React, { useState, useEffect } from "react";
 import './header.scss';
 import {
     AiFillFacebook,
@@ -21,18 +21,44 @@ import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { useCategories } from 'hook/useCategories';
 import "tippy.js/dist/tippy.css";
-
+import SearchResults from 'component/SearchResults/index';
+import { useRef } from 'react';
 const Header = () => {
     const [user, setUser] = useState(null);
     const categories = useCategories()
     const location = useLocation();
+    const [activeMenu, setActiveMenu] = useState(location.pathname);
     const [isHome, setIsHome] = useState(location.pathname.length <= 1); //do trang home kh có gì
     const [isShowHumberger, setShowHumberger] = useState(false);
     const [isShowCategories, setShowCategories] = useState(isHome);
     const [searchValue, setSearchValue] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchResultsState, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
-   
+    const inputRef = useRef(null);
+ 
+    useEffect(() => {
+        console.log("useEffect is triggered"); // Kiểm tra khi useEffect được gọi
+        if (searchValue.trim() === '') {
+           
+          setSearchResults([]);
+          return;
+        }
+    
+        console.log("searchValue: ", searchValue);
+        axios.get(`http://localhost:3000/products?name_like=${encodeURIComponent(searchValue)}`)
+        .then(response => {
+            // Kiểm tra xem response.data có phải là một mảng hay không
+            const results = Array.isArray(response.data) ? response.data : [];
+            setSearchResults(results);
+            console.log("Search Results:", results);
+            
+        })
+        .catch(error => {
+            console.error("Error fetching products:", error);
+            // Trong trường hợp có lỗi, cũng có thể đặt searchResults về mảng rỗng
+            setSearchResults([]);
+        });
+    }, [searchValue]); 
     const [menus, setMenus] = useState([
         {
             name: 'Trang chủ',
@@ -72,6 +98,20 @@ const Header = () => {
         },
     ]);
   
+
+    const handleInputChange = (e) => {
+        const value = e.target.value;
+        console.log("Input Value: ", value); // Kiểm tra giá trị nhập vào
+        setSearchValue(value);
+        setShowResults(true);
+    };
+    // const handleBlur = () => {
+    //     setTimeout(() => setShowResults(false), 100); 
+    // };
+    const handleBlur = () => {
+        setShowResults(false); // Đảm bảo ẩn kết quả tìm kiếm một cách an toàn
+    };
+    
 
     useEffect(() => {
         const isHome = location.pathname.length <= 1;
@@ -161,6 +201,7 @@ const Header = () => {
                         ))}
                     </ul>
                 </div>
+                
                 <div className="header__top_right_social">
                     <Link to={''}>
                         <AiFillFacebook />
@@ -305,7 +346,9 @@ const Header = () => {
                         <ul className={isShowCategories ? '' : 'hidden'}>
                             {categories.map((category) => (
                                 <li key={category.id}>
-                                    <Link to={ROUTERS.USER.PRODUCTS}> {category.name} </Link>
+
+                                    <Link to={`/san-pham/${category.id}`}>
+                                     {category.name} </Link>
                                 </li>
                             ))}
                         </ul>
@@ -314,14 +357,25 @@ const Header = () => {
                         <div className="hero__search">
                             <div className=" col-lg-9 hero__search__form">
                                 {/* Thanh tìm kiếm */}
-                                <form>
+                               <div>
                                 <input
+                                    ref={inputRef}
                                     type="text"
                                     placeholder="Bạn đang tìm gì?"
-                                    
+                                    onChange={handleInputChange}
+                                    value={searchValue}
+                                    onBlur={handleBlur}
+                                    onFocus={() => setShowResults(true)}
                                 />
                                     <button type="submit">Tìm kiếm</button>
-                                </form>
+                                    
+                                    <SearchResults
+                                        searchValue={searchValue}
+                                        searchResults={searchResultsState}
+                                        showResults={showResults}
+                                        handleBlur={handleBlur}
+                                    />   
+                               </div>
                             </div>
 
                             <div className="col-lg-3 hero__search__phone">
@@ -346,17 +400,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-
-            {/* <GoogleLogin
-            onSuccess={credentialResponse => {
-            const credentialResponseDecoded = jwtDecode(credentialResponse.credential);
-            console.log(credentialResponseDecoded);
-                }}
-                onError={() => {
-                    console.log('Login Failed');
-                }}
-            /> */}
         </>
     );
 };
-export default memo(Header);
+export default (Header);

@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import Breadcrumb from '../theme/breadcrumb';
 import './style.scss';
 import { ROUTERS } from 'utils/router';
@@ -9,30 +9,18 @@ import feat3 from 'assets/users/images/feature/feat3.jpg';
 import feat4 from 'assets/users/images/feature/feat4.jpg';
 import { ProductCard } from 'component';
 import { useCategories } from 'hook/useCategories';
+import { useProducts } from 'hook/useProducts';
 const ProductsPage = () => {
+
     const categories = useCategories();
-    const products = [
-        {
-            img: feat1,
-            name: 'Áo thun',
-            price: 200000,
-        },
-        {
-            img: feat2,
-            name: 'Đầm',
-            price: 150000,
-        },
-        {
-            img: feat3,
-            name: 'Chân váy',
-            price: 180000,
-        },
-        {
-            img: feat4,
-            name: 'Set ao váy',
-            price: 180000,
-        },
-    ];
+    const products = useProducts();
+    const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+
+     // Lọc sản phẩm theo danh mục đã chọn
+     const filteredProducts = selectedCategoryId
+     ? products.filter(product => product.cat_id === selectedCategoryId)
+     : products; // Nếu không có danh mục nào được chọn, hiển thị tất cả sản phẩm
+
     const sorts = ['Giá từ thấp đến cao', 'Giá từ cao tới thấp', 'Cũ đến mới', 'Mới đến cũ', 'Bán chạy nhất'];
     return (
         <>
@@ -67,22 +55,34 @@ const ProductsPage = () => {
                             <div className="slidebar__item">
                                 <h3>Thể loại khác</h3>
                                 <div className="product__list">
-                                    <ul>
+                                <ul>
+                                        {categories.map((category) => (
+                                            <li key={category.id}>
+                                                <Link 
+                                                    to="#" 
+                                                    onClick={() => setSelectedCategoryId(category.id)} // Cập nhật ID danh mục khi nhấn vào
+                                                >
+                                                    {category.name}
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    {/* <ul>
                                         {categories.map((category) => (
                                             <li key={category.id}>
                                                 <Link to={ROUTERS.USER.PRODUCTS}>{category.name}</Link>
                                             </li>
                                         ))}
-                                    </ul>
+                                    </ul> */}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                         <div className="row">
-                            {products.map((product, key) => (
-                                <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12 " key={key}>
-                                    <ProductCard name={product.name} img={product.img} price={product.price} />
+                            {filteredProducts.map((product, key) => (
+                                <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12" key={key}>
+                                    <ProductCard name={product.name} img={product.image} price={product.price} />
                                 </div>
                             ))}
                         </div>

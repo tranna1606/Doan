@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@tippyjs/react": "^4.2.6",
-    "axios": "^1.7.7"
+    "axios": "^1.7.7",
+    "tippy.js": "^6.3.7"
   }
 }

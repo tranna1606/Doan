@@ -14,6 +14,8 @@ import 'react-tabs/style/react-tabs.css';
 
 import ProductCard from 'component/ProductCard';
 import { useFeatProducts } from 'hook/useFeatProducts';
+import { Link } from 'react-router-dom';
+import { ROUTERS } from 'utils/router';
 // import { featproducts } from 'utils/common';
 
 const HomePage = () => {
@@ -91,6 +93,7 @@ const HomePage = () => {
         <>
             {/* Categories Begin */}
             <div className="container container__categories_slider">
+                <h2 className='title'>Danh mục sản phẩm</h2>
                 <Carousel responsive={responsive} className="categories_slider">
                     {sliderItems.map((item, key) => (
                         <div
@@ -116,13 +119,19 @@ const HomePage = () => {
             {/* Featured End */}
 
             {/* Banner Begin  */}
-
+            
             <div className="container banner">
-                <div className="col-lg-6 banner__pic">
-                    <img src={banner2} alt="banner" />
-                </div>
-                <div className="col-lg-6 banner__pic">
-                    <img src={banner1} alt="banner" />
+                <h2 className='banner-title'>Bài Viết</h2>
+                <div className='banner-container'>
+                    <div className="col-lg-6 banner__pic">
+                        <Link to = {ROUTERS.USER.ARTICLE}>
+                            <img src={banner2} alt="banner" />
+                        </Link>
+                        
+                    </div>
+                        <Link to = {ROUTERS.USER.ARTICLE}>
+                            <img src={banner1} alt="banner" />
+                        </Link>
                 </div>
             </div>
 
