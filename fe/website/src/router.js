@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import ProductDetailPage from 'pages/users/productDetailPage';
 import CartPage from 'pages/users/CartPage';
 import ArticlesList from 'pages/users/ArticlePage/ArticleList/ArticleList';
+import ContactPage from 'pages/users/ContactPage';
 
 const renderUserRouter = () => {
     const userRouters = [
@@ -23,7 +24,7 @@ const renderUserRouter = () => {
             component: <ProductsPage />,
         },
         {
-            path: ROUTERS.USER.PRODUCT,
+            path: ROUTERS.USER.PRODUCT + '/:id',
             component: <ProductDetailPage />,
         },
         {
@@ -33,6 +34,10 @@ const renderUserRouter = () => {
         {
             path: ROUTERS.USER.ARTICLE,
             component: <ArticlesList />,
+        },
+        {
+            path: ROUTERS.USER.CONTACT,
+            component: <ContactPage />,
         },
     ];
     return (

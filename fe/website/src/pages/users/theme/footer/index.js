@@ -19,7 +19,7 @@ const Footer = () => {
                             <div className="footer__about">
                                 <h1 className="footer__about-logo">Ningni Store</h1>
                                 <ul>
-                                    <li>Địa chỉ: 231 Dương Đĩnh Chi</li>
+                                    <li>Địa chỉ: 29 Đông Hưng Thuận 45</li>
                                     <li>Phone: 078-344-8693 </li>
                                     <li>Email: ningni@gmail.com</li>
                                 </ul>

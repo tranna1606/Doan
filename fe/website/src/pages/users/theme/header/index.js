@@ -23,7 +23,9 @@ import { useCategories } from 'hook/useCategories';
 import "tippy.js/dist/tippy.css";
 import SearchResults from 'component/SearchResults/index';
 import { useRef } from 'react';
-const Header = () => {
+import { useNavigate } from 'react-router-dom';
+import { SiShopee } from "react-icons/si";
+const Header = ({categoryId}) => {
     const [user, setUser] = useState(null);
     const categories = useCategories()
     const location = useLocation();
@@ -35,7 +37,12 @@ const Header = () => {
     const [searchResultsState, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
     const inputRef = useRef(null);
- 
+    
+    const navigate = useNavigate();
+
+    const handleCategoryClick = (categoryId) => {
+        navigate(`/san-pham/${categoryId}`);
+    };
     useEffect(() => {
         console.log("useEffect is triggered"); // Kiểm tra khi useEffect được gọi
         if (searchValue.trim() === '') {
@@ -64,13 +71,10 @@ const Header = () => {
             name: 'Trang chủ',
             path: ROUTERS.USER.HOME,
         },
-        {
-            name: 'Cửa hàng',
-            path: ROUTERS.USER.PRODUCTS,
-        },
+        
         {
             name: 'Sản Phẩm',
-            path: '',
+            path: ROUTERS.USER.PRODUCTS,
             isShowSubMenu: false,
             children: [
                 {
@@ -94,7 +98,7 @@ const Header = () => {
         },
         {
             name: 'Liên hệ',
-            path: '',
+            path: ROUTERS.USER.CONTACT,
         },
     ]);
   
@@ -105,11 +109,11 @@ const Header = () => {
         setSearchValue(value);
         setShowResults(true);
     };
-    // const handleBlur = () => {
-    //     setTimeout(() => setShowResults(false), 100); 
-    // };
+    
     const handleBlur = () => {
-        setShowResults(false); // Đảm bảo ẩn kết quả tìm kiếm một cách an toàn
+        setTimeout(() => {
+            setShowResults(false); // Đảm bảo ẩn kết quả tìm kiếm một cách an toàn
+        })
     };
     
 
@@ -219,7 +223,7 @@ const Header = () => {
                     <ul>
                         <li>
                             <FaRegEnvelope />
-                            ningni@gmail.com
+                            <a href="mailto:ningni@gmail.com">ningni@gmail.com</a>
                         </li>
                         <li>Miễn phí đơn từ {fomatter(200000)}</li>
                     </ul>
@@ -232,7 +236,7 @@ const Header = () => {
                             <ul>
                                 <li>
                                     <AiTwotoneMail />
-                                    ningni@gmail.com
+                                    <a href="mailto:ningni@gmail.com">ningni@gmail.com</a>
                                 </li>
                                 <li>Miễn phí vận chuyển từ {fomatter(200000)}</li>
                             </ul>
@@ -240,18 +244,28 @@ const Header = () => {
                         <div className="col-6 header__top_right">
                             <ul className='header-right'>
                                 <li>
-                                    <Link to={''}>
+                                    <Link 
+                                        to="https://www.facebook.com/share/utao87FC5JBmxZNK/?mibextid=LQQJ4d"
+                                        target="_blank" 
+                                    >
                                         <AiFillFacebook />
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to={''}>
+                                    
+                                    <Link 
+                                        target="_blank" 
+                                        to="https://www.instagram.com/ningni.store?igsh=NWdpYnV5aGphYTVk&utm_source=qr"
+                                    >
                                         <AiFillInstagram />
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to={''}>
-                                        <AiFillLinkedin />
+                                    <Link 
+                                        to="https://vn.shp.ee/9gv91m5?smtt=0.0.9"
+                                        target="_blank" 
+                                    >
+                                        <SiShopee />
                                     </Link>
                                 </li>
 
@@ -280,7 +294,11 @@ const Header = () => {
                 <div className="row">
                     <div className="col-lg-3 ">
                         <div className="header__logo">
-                            <h1>Ningni Store</h1>
+                           <h1>
+                                <Link to = {ROUTERS.USER.HOME}>
+                                    Ningni Store
+                                </Link>
+                           </h1>
                         </div>
                     </div>
                     <div className="col-lg-6 ">
@@ -347,7 +365,7 @@ const Header = () => {
                             {categories.map((category) => (
                                 <li key={category.id}>
 
-                                    <Link to={`/san-pham/${category.id}`}>
+                                    <Link to={`/san-pham/${category.id}`} onClick={() => handleCategoryClick(category.id)}>
                                      {category.name} </Link>
                                 </li>
                             ))}
@@ -359,12 +377,13 @@ const Header = () => {
                                 {/* Thanh tìm kiếm */}
                                <div>
                                 <input
+                                    spellCheck = {false}
                                     ref={inputRef}
                                     type="text"
                                     placeholder="Bạn đang tìm gì?"
                                     onChange={handleInputChange}
-                                    value={searchValue}
-                                    onBlur={handleBlur}
+                                    // onBlur={handleBlur}
+                                    value={searchValue} 
                                     onFocus={() => setShowResults(true)}
                                 />
                                     <button type="submit">Tìm kiếm</button>
@@ -383,7 +402,8 @@ const Header = () => {
                                     <AiOutlinePhone />
                                 </div>
                                 <div className="hero__search__phone_text">
-                                    <p>0783.448.693</p>
+                                    <p><a href="tel:+84783448693">0783.448.693</a></p>
+                                    <p></p>
                                     <span>Hỗ trợ 24/7</span>
                                 </div>
                             </div>

@@ -12,11 +12,14 @@
     margin-top: 5px; // Khoảng cách giữa input và danh sách kết quả
     
     .search-item {
-        display: flex; // Sắp xếp theo hàng
-        align-items: center; // Căn giữa theo chiều dọc
-        padding: 10px; // Khoảng cách bên trong
-        cursor: pointer; // Thay đổi con trỏ khi hover
-        transition: background-color 0.3s; // Hiệu ứng chuyển màu nền
+        a{
+            display: flex; // Sắp xếp theo hàng
+            align-items: center; // Căn giữa theo chiều dọc
+            padding: 10px; // Khoảng cách bên trong
+            cursor: pointer; // Thay đổi con trỏ khi hover
+            transition: background-color 0.3s; // Hiệu ứng chuyển màu nền
+        }
+        
 
         &:hover {
             background-color: #f1f1f1; // Màu nền khi hover

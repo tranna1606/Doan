@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import Breadcrumb from '../theme/breadcrumb';
 import './productDetailPage.scss';
 import detail1 from 'assets/users/images/detail/detail1.jpg';
@@ -8,48 +8,110 @@ import { AiOutlineCopy, AiOutlineEye, AiOutlineFacebook, AiOutlineInstagram } fr
 import { fomatter } from 'utils/formatter';
 import { ProductCard } from 'component';
 import { featproducts } from 'utils/common';
+import { useLocation, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const ProductDetailPage = () => {
-    const imgs = [detail1, detail2, detail3];
+    const [selectedColor, setSelectedColor] = useState('');
+    const availableColors = ['Đen', 'Trắng', 'Hồng'];
+    const { id } = useParams();
+    const [selectedSize, setSelectedSize] = useState('');
+    const sizes = ['S', 'M', 'L']; 
+    const [quantity, setQuantity] = useState(1);
+    useEffect(() => {
+        console.log(id)
+        if (id) {
+            getProductData(id);
+        }
+    }, [id]) 
+
+    const [product, setProduct] = useState({});
+
+    const getProductData = async(id) => {
+        const response = await axios.get('http://localhost:3000/products/' + id);
+        console.log(response)
+        console.log(response.data.imgs)
+        if (response.status === 200) {
+            const data = await response.data; 
+            setProduct(data);
+        }
+    }
+    const handleAddToCart = () => {
+        console.log('Thêm vào giỏ hàng:', { product, selectedColor, selectedSize, quantity });
+    };
     return (
         <>
             <Breadcrumb name="Chi tiết sản phẩm" />
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6 product__detail_pic">
-                        <img src={detail3} alt="product-img" />
+                        <img  className="img-main" src={product.image} alt="product-img"  />
                         <div className="main">
-                            {imgs.map((img, index) => (
-                                <img src={img} alt="product-img" key={index} />
+                            {product.imgs && product.imgs.map((item) => (
+                                <img src={item.img} alt="product-img" key={item.name} />
                             ))}
+                            
                         </div>
                     </div>
                     <div className="col-lg-6 product__detail_text">
-                        <h3>Rau củ xanh</h3>
+                        <h3>{product.name}</h3>
                         <div className="seen-icon">
                             <AiOutlineEye />
                             {`10 (lượt đã xem)`}
                         </div>
-                        <h4>{fomatter(200000)}</h4>
+                        <h4>{fomatter(product.price)}</h4>
                         <p>
-                            Sự kết hợp tinh tế giữa sự đơn giản và dịu dàng, những tín đồ theo phong cách Moran mang đến
-                            vẻ yểu điệu đầy quyến rũ, dành riêng cho những cô nàng bánh bèo nữ tính của mình.
+                            {product.description}
                         </p>
+                        {/* Chọn màu sắc giống Shopee */}
+                        <div className="product__color">
+                            <label>Màu sắc:</label>
+                            <div className="color-options">
+                                {availableColors.map((color, index) => (
+                                    <button
+                                        key={index}
+                                        className={`color-button ${selectedColor === color ? 'active' : ''}`}
+                                        onClick={() => setSelectedColor(color)}
+                                    >
+                                        {color}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                        {/* Chọn size giống Shopee */}
+                        <div className="product__size">
+                            <label>Size:</label>
+                            <div className="size-options">
+                                {sizes.map((size) => (
+                                    <button 
+                                        key={size}
+                                        className={`size-button ${selectedSize === size ? 'active' : ''}`}
+                                        onClick={() => setSelectedSize(size)}
+                                    >
+                                        {size}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                        {/* Chọn số lượng */}
+                        <div className="product__quantity">
+                            <label>Số lượng:</label>
+                            <div className="quantity-container">
+                                <span onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}className="quantity-btn">-</span>
+                                <span className="quantity-display">{quantity}</span>
+                                <span onClick={() => setQuantity(quantity + 1)} className="quantity-btn">+</span>
+                            </div>
+                        </div>
+                        {/* Thêm vào giỏ hàng */}
+                        <button className="add-to-cart" onClick={handleAddToCart}>
+                            Thêm vào giỏ hàng
+                        </button>
                         <ul>
                             <li>
-                                <b>Tình trạng:</b> <span>Còn hàng</span>
+                                <b>Tình trạng:</b> {product.quantity > 0 ? 'Còn hàng' : 'Hết hàng'}
                             </li>
-                            <li>
-                                <b>Số lượng:</b> <span>20</span>
-                            </li>
-                            <li>
-                                <b>Chia sẻ:</b>{' '}
-                                <span>
-                                    <AiOutlineFacebook />
-                                    <AiOutlineInstagram />
-                                    <AiOutlineCopy />
-                                </span>
-                            </li>
+                            
+                            
                         </ul>
                     </div>
                 </div>

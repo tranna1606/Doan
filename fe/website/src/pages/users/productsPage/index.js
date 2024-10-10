@@ -2,7 +2,7 @@ import { memo, useState } from 'react';
 import Breadcrumb from '../theme/breadcrumb';
 import './style.scss';
 import { ROUTERS } from 'utils/router';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import feat1 from 'assets/users/images/feature/feat1.jpg';
 import feat2 from 'assets/users/images/feature/feat2.jpg';
 import feat3 from 'assets/users/images/feature/feat3.jpg';
@@ -11,7 +11,6 @@ import { ProductCard } from 'component';
 import { useCategories } from 'hook/useCategories';
 import { useProducts } from 'hook/useProducts';
 const ProductsPage = () => {
-
     const categories = useCategories();
     const products = useProducts();
     const [selectedCategoryId, setSelectedCategoryId] = useState(null);
@@ -33,7 +32,7 @@ const ProductsPage = () => {
                                 <h3>Tìm kiếm</h3>
                                 <input type="text" />
                             </div>
-                            <div className="slidebar__item">
+                            {/* <div className="slidebar__item">
                                 <h3>Mức giá</h3>
                                 <div className="price__range_wrap">
                                     <p>Từ</p>
@@ -41,17 +40,8 @@ const ProductsPage = () => {
                                     <p>Đến</p>
                                     <input type="number" min={0} />
                                 </div>
-                            </div>
-                            <div className="slidebar__item">
-                                <h3>Sắp xếp</h3>
-                                <div className="tags">
-                                    {sorts.map((item, key) => (
-                                        <div className={`tag ${key === 0 ? 'active' : ''}`} key={key}>
-                                            {item}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
+                            </div> */}
+                           
                             <div className="slidebar__item">
                                 <h3>Thể loại khác</h3>
                                 <div className="product__list">
@@ -67,13 +57,17 @@ const ProductsPage = () => {
                                             </li>
                                         ))}
                                     </ul>
-                                    {/* <ul>
-                                        {categories.map((category) => (
-                                            <li key={category.id}>
-                                                <Link to={ROUTERS.USER.PRODUCTS}>{category.name}</Link>
-                                            </li>
-                                        ))}
-                                    </ul> */}
+                                    
+                                </div>
+                            </div>
+                            <div className="slidebar__item">
+                                <h3>Sắp xếp</h3>
+                                <div className="tags">
+                                    {sorts.map((item, key) => (
+                                        <div className={`tag ${key === 0 ? 'active' : ''}`} key={key}>
+                                            {item}
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>

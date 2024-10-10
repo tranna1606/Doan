@@ -3,8 +3,9 @@ export const ROUTERS = {
         HOME: '',
         PROFILE: 'thong-tin-ca-nhan',
         PRODUCTS: 'san-pham/:categoryId',
-        PRODUCT: 'san-pham/chi-tiet/',
+        PRODUCT: 'chi-tiet',
         CART : 'gio-hang',
-        ARTICLE:'bai-viet'
+        ARTICLE:'bai-viet',
+        CONTACT:'lien-he'
     },
 };
