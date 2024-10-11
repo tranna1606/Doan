@@ -1,4 +1,27 @@
 {
+  "users": [
+    {
+      "sub": "102469249055200850151",
+      "name": "Na Tran",
+      "given_name": "Na",
+      "family_name": "Tran",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocLN0IfvWqIEjyGyUcGAv93-zqiwYDbJiJTLvo-MesoU3177Iw=s96-c",
+      "email": "tranthina1606203@gmail.com",
+      "email_verified": true,
+      "id": 1
+    },
+    {}
+  ],
+  "loggedUser": {
+    "sub": "102469249055200850151",
+    "name": "Na Tran",
+    "given_name": "Na",
+    "family_name": "Tran",
+    "picture": "https://lh3.googleusercontent.com/a/ACg8ocLN0IfvWqIEjyGyUcGAv93-zqiwYDbJiJTLvo-MesoU3177Iw=s96-c",
+    "email": "tranthina1606203@gmail.com",
+    "email_verified": true,
+    "id": 1
+  },
   "categories": [
     {
       "id": 1,
@@ -26,29 +49,6 @@
     }
   ],
   "products": [
-    {
-      "id": 1,
-      "name": "Áo thun cổ V",
-      "price": 125500,
-      "cat_id": 4,
-      "image": "https://i.pinimg.com/564x/ab/03/89/ab03893c3a83bbbbc2e57f3ed1d9b365.jpg",
-      "quantity": 10,
-      "description": "Áo thun tay dài cổ V ôm body, chất liệu cotton co giãn, thoải mái. Thiết kế tôn dáng, phù hợp mặc đi làm hay dạo phố.",
-      "imgs": [
-        {
-          "name": 1,
-          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01eO7TGe1N3uyZhmouN_!!2215620131515-0-cib.jpg"
-        },
-        {
-          "name": 2,
-          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01VRFoBc1InBlicJ0Pv_!!4012130937-0-cib.jpg"
-        },
-        {
-          "name": 3,
-          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01HCZt1T1jap1v5slXL_!!2218001884565-0-cib.jpg"
-        }
-      ]
-    },
     {
       "id": 2,
       "name": "Đầm dáng xòe",
@@ -345,18 +345,26 @@
       "name": "Đầm dáng xòe",
       "price": 250000,
       "image": "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/461605209_955685083272721_6772750334680970427_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=CfwqolPT9QUQ7kNvgHwf9RS&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=ALIj7l3kYXnR7WTtvpl5FJC&oh=00_AYCvYyM4yJYQ2OkFtN1UDWvPeujszxhvGMA6ZbC_jjGPiQ&oe=6708BC36",
-      "color": "Trắng",
-      "size": "M",
-      "quantity": 1
-    },
-    {
-      "id": 1,
-      "name": "Áo thun cổ V",
-      "price": 125500,
-      "image": "https://i.pinimg.com/564x/ab/03/89/ab03893c3a83bbbbc2e57f3ed1d9b365.jpg",
-      "color": "Trắng",
-      "size": "M",
-      "quantity": 1
+      "color": "Đen",
+      "size": "S",
+      "quantity": 1,
+      "variants": [
+        {
+          "color": "Đen",
+          "size": "S",
+          "quantity": 1
+        },
+        {
+          "color": "Đen",
+          "size": "M",
+          "quantity": 1
+        },
+        {
+          "color": "Đen",
+          "size": "L",
+          "quantity": 1
+        }
+      ]
     }
   ]
 }

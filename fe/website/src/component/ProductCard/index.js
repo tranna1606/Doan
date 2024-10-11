@@ -31,7 +31,7 @@ const ProductCard = ({ img, name, price,id }) => {
                 </div>
                 <div className="featured__item_text">
                     <h6>
-                        <Link to={'/' + ROUTERS.USER.PRODUCT + '/' +id}>{name}</Link>
+                        <Link to={  ROUTERS.USER.PRODUCT + '/' +id}>{name}</Link>
                     </h6>
                     <h5>{fomatter(price)}</h5>
                 </div>

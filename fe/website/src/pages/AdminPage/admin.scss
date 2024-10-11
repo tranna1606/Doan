@@ -1,0 +1,109 @@
+.admin-page {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; /* Căn giữa trang */
+
+  h1 {
+    color: #f26398;
+    text-align: center; /* Căn giữa tiêu đề */
+  }
+
+  .add-product, 
+  .product-list, 
+  .category-list {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+
+  .add-product {
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa form thêm sản phẩm */
+    input {
+      margin: 10px 0;
+      padding: 10px;
+      width: 80%; /* Tăng chiều rộng input */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #f26398;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  }
+
+  .product-list, 
+  .category-list {
+    h2 {
+      margin-bottom: 20px;
+      text-align: center; /* Căn giữa tiêu đề */
+    }
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Dàn đều các sản phẩm/danh mục */
+    grid-gap: 20px; /* Tạo khoảng cách giữa các sản phẩm/danh mục */
+  }
+
+  .product-item,
+  .category-item {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng */
+    text-align: center; /* Căn giữa nội dung */
+    
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #f26398;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+  }
+
+  input {
+    padding: 8px;
+    margin: 10px 0;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    padding: 10px;
+    background-color: #f26398;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+}

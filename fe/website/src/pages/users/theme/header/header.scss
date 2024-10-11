@@ -78,6 +78,9 @@ $bannerImg: '/assets/users/images/hero/banner.webp';
 .header-right{
     display: flex;
     align-items: center;
+    .btn-logout{
+        margin-left : 10px;
+    }
 }
 .avatar{
     width: 30px;

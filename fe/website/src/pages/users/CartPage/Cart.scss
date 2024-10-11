@@ -1,23 +1,40 @@
-@import 'style/pages/all';
-.cart-container{
-    width: 870px ;
-}
-.cart-item{
-   display: flex;
-   justify-content: space-between;
-  border-bottom: 1px solid #ccc;
-  align-items: center;
-  margin-bottom: 10px;
+.cart-container {
+    width: 870px;
 }
 
-.cart-img{
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 0; /* Thêm khoảng cách cho các hàng */
+}
+
+.cart-img {
     width: 120px;
     height: 120px;
     object-fit: cover;
 }
-.cart-name{
 
+.cart-details {
+    flex-grow: 1; /* Cho phép nội dung này chiếm không gian còn lại */
+    padding: 0 10px; /* Thêm khoảng cách bên trái và bên phải */
 }
+
+.cart-variants {
+    display: flex;
+    flex-direction: column; /* Đặt các hàng nhỏ thành cột */
+    margin-top: 5px; /* Khoảng cách giữa tên sản phẩm và các thuộc tính */
+}
+
+.cart-variant {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px; /* Khoảng cách giữa các hàng nhỏ */
+}
+
 .quantity-container {
     display: flex;
     align-items: center;
@@ -28,7 +45,7 @@
     border-radius: 5px;
     background-color: #f9f9f9;
 }
-  
+
 .quantity-btn {
     background: none;
     border: none;
@@ -37,36 +54,43 @@
     cursor: pointer;
     padding: 0 10px;
 }
-  
+
 .quantity-display {
     width: 40px;
     text-align: center;
     font-size: 16px;
     color: #333;
 }
-
-.cart-price{
-
+.cart-attribute{
+    margin-right: 10px;
 }
-.total-container{
+.cart-price {
+    font-size: 1.2rem; /* Điều chỉnh kích thước giá cho đẹp hơn */
+}
+
+.total-container {
     margin-top: 30px;
 }
-.total-header{
+
+.total-header {
     display: flex;
     justify-content: space-between;
 }
-.total-text{
+
+.total-text {
     font-size: 1.5rem;
     font-weight: 600;
-    color:#f26398;
+    color: #f26398;
 }
-.total-price{
+
+.total-price {
     font-size: 1.5rem;
     font-weight: 600;
 }
-.total-btn{
+
+.total-btn {
     margin-top: 20px;
-    border : none;
+    border: none;
     background-color: #f26398;
     color: white;
     padding: 20px;
@@ -75,7 +99,8 @@
     float: right;
     cursor: pointer;
 }
-.btn-container{
+
+.btn-container {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;
