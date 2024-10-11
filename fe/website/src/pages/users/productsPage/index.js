@@ -3,10 +3,6 @@ import Breadcrumb from '../theme/breadcrumb';
 import './style.scss';
 import { ROUTERS } from 'utils/router';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import feat1 from 'assets/users/images/feature/feat1.jpg';
-import feat2 from 'assets/users/images/feature/feat2.jpg';
-import feat3 from 'assets/users/images/feature/feat3.jpg';
-import feat4 from 'assets/users/images/feature/feat4.jpg';
 import { ProductCard } from 'component';
 import { useCategories } from 'hook/useCategories';
 import { useProducts } from 'hook/useProducts';
@@ -76,7 +72,12 @@ const ProductsPage = () => {
                         <div className="row">
                             {filteredProducts.map((product, key) => (
                                 <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12" key={key}>
-                                    <ProductCard name={product.name} img={product.image} price={product.price} />
+                                    <ProductCard 
+                                    id={product.id}
+                                    name={product.name} 
+                                    img={product.image} 
+                                    price={product.price} 
+                                    />
                                 </div>
                             ))}
                         </div>

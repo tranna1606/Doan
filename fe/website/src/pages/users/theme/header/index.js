@@ -29,7 +29,6 @@ const Header = ({categoryId}) => {
     const [user, setUser] = useState(null);
     const categories = useCategories()
     const location = useLocation();
-    const [activeMenu, setActiveMenu] = useState(location.pathname);
     const [isHome, setIsHome] = useState(location.pathname.length <= 1); //do trang home kh có gì
     const [isShowHumberger, setShowHumberger] = useState(false);
     const [isShowCategories, setShowCategories] = useState(isHome);
@@ -37,9 +36,9 @@ const Header = ({categoryId}) => {
     const [searchResultsState, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
     const inputRef = useRef(null);
-    
+    const [selectedMenu, setSelectedMenu] = useState('');
     const navigate = useNavigate();
-
+    const [cartItems, setCartItems] = useState([]);
     const handleCategoryClick = (categoryId) => {
         navigate(`/san-pham/${categoryId}`);
     };
@@ -141,6 +140,23 @@ const Header = ({categoryId}) => {
             }
             },
         });
+
+        useEffect(() => {
+            // Hàm lấy dữ liệu giỏ hàng
+            const fetchCartItems = async () => {
+                try {
+                    const response = await axios.get('http://localhost:3000/cart');
+                    setCartItems(response.data);
+                } catch (error) {
+                    console.error('Error fetching cart items:', error);
+                }
+            };
+    
+            fetchCartItems();
+        }, []);
+    
+        // Đếm số lượng sản phẩm trong giỏ hàng
+        const cartItemCount = cartItems.length;
     return (
         <>
             
@@ -305,7 +321,11 @@ const Header = ({categoryId}) => {
                         <div className="header__menu">
                             <ul>
                                 {menus?.map((menu, menuKey) => (
-                                    <li key={menuKey} className={menuKey === 0 ? 'active' : ''}>
+                                    <li 
+                                        key={menuKey} 
+                                        className={`menu-button ${selectedMenu === menu ? 'active' : ''}`}
+                                        onClick={() => setSelectedMenu(menu)}
+                                    >
                                         <Link to={menu?.path}>{menu?.name}</Link>
 
                                         {menu.children && (
@@ -324,14 +344,14 @@ const Header = ({categoryId}) => {
                     </div>
                     <div className="col-lg-3 ">
                         <div className="header__cart">
-                            <div className="header__cart_price">
+                            {/* <div className="header__cart_price">
                                 <span>{fomatter(1120000)}</span>
-                            </div>
+                            </div> */}
                             <ul>
                                 <li>
                                     <Link to={ROUTERS.USER.CART} >
                                         <AiOutlineShoppingCart />
-                                        <span>5</span>
+                                        <span>{cartItemCount}</span>
                                     </Link>
                                     
                                 </li>

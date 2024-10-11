@@ -18,7 +18,8 @@ const ProductCard = ({ img, name, price,id }) => {
 
                         <li>
                             <Link to={generatePath(ROUTERS.USER.PRODUCT)}>
-                            <AiOutlineEye />
+                            <Link to={'/' + ROUTERS.USER.PRODUCT + '/' +id}> <AiOutlineEye /></Link>
+                            
                             </Link>
 
                         </li>
@@ -30,7 +31,7 @@ const ProductCard = ({ img, name, price,id }) => {
                 </div>
                 <div className="featured__item_text">
                     <h6>
-                        <Link to={generatePath(ROUTERS.USER.PRODUCT, { id: 1 })}>{name}</Link>
+                        <Link to={'/' + ROUTERS.USER.PRODUCT + '/' +id}>{name}</Link>
                     </h6>
                     <h5>{fomatter(price)}</h5>
                 </div>

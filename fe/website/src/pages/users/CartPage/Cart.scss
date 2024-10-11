@@ -7,7 +7,9 @@
    justify-content: space-between;
   border-bottom: 1px solid #ccc;
   align-items: center;
+  margin-bottom: 10px;
 }
+
 .cart-img{
     width: 120px;
     height: 120px;
@@ -71,6 +73,7 @@
     font-size: 1.3rem;
     padding: 16px 35px;
     float: right;
+    cursor: pointer;
 }
 .btn-container{
     display: flex;

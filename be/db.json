@@ -1,343 +1,362 @@
 {
-    "categories":[
+  "categories": [
+    {
+      "id": 1,
+      "name": "Đầm"
+    },
+    {
+      "id": 2,
+      "name": "Áo sơ mi"
+    },
+    {
+      "id": 3,
+      "name": "Quần"
+    },
+    {
+      "id": 4,
+      "name": "Áo thun"
+    },
+    {
+      "id": 5,
+      "name": "Ác khoác"
+    },
+    {
+      "id": 6,
+      "name": "Chân váy"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Áo thun cổ V",
+      "price": 125500,
+      "cat_id": 4,
+      "image": "https://i.pinimg.com/564x/ab/03/89/ab03893c3a83bbbbc2e57f3ed1d9b365.jpg",
+      "quantity": 10,
+      "description": "Áo thun tay dài cổ V ôm body, chất liệu cotton co giãn, thoải mái. Thiết kế tôn dáng, phù hợp mặc đi làm hay dạo phố.",
+      "imgs": [
         {
-            "id": 1,
-            "name": "Đầm"
+          "name": 1,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01eO7TGe1N3uyZhmouN_!!2215620131515-0-cib.jpg"
         },
         {
-            "id": 2,
-            "name": "Áo sơ mi"
+          "name": 2,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01VRFoBc1InBlicJ0Pv_!!4012130937-0-cib.jpg"
         },
         {
-            "id": 3,
-            "name": "Quần"
-        },
-        {
-            "id": 4,
-            "name": "Áo thun"
-        },
-        {
-            "id": 5,
-            "name": "Ác khoác"
-        },
-        {
-            "id": 6,
-            "name": "Chân váy"
+          "name": 3,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01HCZt1T1jap1v5slXL_!!2218001884565-0-cib.jpg"
         }
-    ],
-    "products":[
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Đầm dáng xòe",
+      "price": 250000,
+      "cat_id": 1,
+      "image": "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/461605209_955685083272721_6772750334680970427_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=CfwqolPT9QUQ7kNvgHwf9RS&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=ALIj7l3kYXnR7WTtvpl5FJC&oh=00_AYCvYyM4yJYQ2OkFtN1UDWvPeujszxhvGMA6ZbC_jjGPiQ&oe=6708BC36",
+      "quantity": 10,
+      "imgs": [
         {
-            "id": 1,
-            "name": "Áo thun cổ V",
-            "price": 125500,
-            "cat_id": 4,
-            "image": "https://i.pinimg.com/564x/ab/03/89/ab03893c3a83bbbbc2e57f3ed1d9b365.jpg",
-            "quantity": 10,
-            "description": "Áo thun tay dài cổ V ôm body, chất liệu cotton co giãn, thoải mái. Thiết kế tôn dáng, phù hợp mặc đi làm hay dạo phố.",
-            "imgs":[
-              {
-                "name": 1,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01eO7TGe1N3uyZhmouN_!!2215620131515-0-cib.jpg"
-              },
-              {
-               "name": 2,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01VRFoBc1InBlicJ0Pv_!!4012130937-0-cib.jpg"
-              },
-              {
-                "name": 3,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01HCZt1T1jap1v5slXL_!!2218001884565-0-cib.jpg"
-              }
-            ]
+          "name": 1,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN018qRJV21mkO6mI1A4w_!!3839224992-0-cib.jpg"
         },
         {
-           "id": 2,
-            "name": "Đầm dáng xòe",
-            "price": 250000,
-            "cat_id": 1,
-            "image": "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/461605209_955685083272721_6772750334680970427_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=CfwqolPT9QUQ7kNvgHwf9RS&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=ALIj7l3kYXnR7WTtvpl5FJC&oh=00_AYCvYyM4yJYQ2OkFtN1UDWvPeujszxhvGMA6ZbC_jjGPiQ&oe=6708BC36",
-            "quantity": 10,
-            "imgs":[
-              {
-                "name": 1,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN018qRJV21mkO6mI1A4w_!!3839224992-0-cib.jpg"
-              },
-              {
-               "name": 2,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01DjpEMy1mkO6n4DK3U_!!3839224992-0-cib.jpg"
-              },
-              {
-                "name": 3,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01khT30G1mkO6pcHcg9_!!3839224992-0-cib.jpg"
-              }
-            ]
+          "name": 2,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01DjpEMy1mkO6n4DK3U_!!3839224992-0-cib.jpg"
         },
         {
-            "id": 3,
-            "name": "Chân váy xếp ly",
-            "price": 180000,
-            "cat_id": 6,
-            "image":"https://cbu01.alicdn.com/img/ibank/O1CN01p5GVQ71siuXxgy9XR_!!2218167105801-0-cib.jpg",
-            "quantity": 10,
-            "imgs":[
-              {
-                "name": 1,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01tvNArM1fRQN5AzBmK_!!2211916494003-0-cib.jpg"
-              },
-              {
-               "name": 2,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN011L7Pd71fRQND30fn7_!!2211916494003-0-cib.jpg"
-              },
-              {
-                "name": 3,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01rFtj2L24hmkMMaklE_!!841087423.jpg"
-              }
-            ]
-        },
-        {
-            "id": 4,
-            "name": "Áo sơ mi",
-            "price": 120000,
-            "cat_id": 2,
-            "image":"https://i.pinimg.com/564x/3f/04/cc/3f04ccfb0cec55c073e32efb8b3e2d87.jpg",
-            "quantity": 10,
-            "imgs":[
-              {
-                "name": 1,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01LfPe4S1Jh4I1AOga5_!!2216050971059-0-cib.jpg"
-              },
-              {
-               "name": 2,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01bttnN41Jh4I7265Ar_!!2216050971059-0-cib.jpg"
-              },
-              {
-                "name": 3,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01JXqX5120X1CQ5j7bv_!!2218148446858-0-cib.jpg"
-              }
-            ]
-        },
-        {
-            "id": 5,
-            "name": "Quần jeans đùi",
-            "price": 250000,
-            "cat_id": 3,
-            "image":"https://i.pinimg.com/564x/4b/6d/c3/4b6dc3dee71fa18a7811132e2a99bd40.jpg",
-            "quantity": 10,
-            "imgs":[
-              {
-                "name": 1,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01WaR2y42FOyEY6mZlK_!!2208857268871-0-cib.jpg"
-              },
-              {
-               "name": 2,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01itFQAp2FOyEa7hLRQ_!!2208857268871-0-cib.jpg"
-              },
-              {
-                "name": 3,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01ivwHDz1ChLIXcgOXE_!!2214879890112-0-cib.jpg"
-              }
-            ]
-        },
-        {
-            "id": 6,
-            "name": "Áo khoác da",
-            "price": 270000,
-            "cat_id": 5,
-            "image": "https://i.pinimg.com/564x/de/15/44/de1544bf8d0ad41c2051b23e21f207be.jpg",
-            "quantity": 10,
-            "imgs":[
-              {
-                "name": 1,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01ItpNwW1hXxJan43TW_!!2037014288-0-cib.jpg"
-              },
-              {
-               "name": 2,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN0116FVPT1hXxJan53qk_!!2037014288-0-cib.jpg"
-              },
-              {
-                "name": 3,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01rAEhWX1hXxJZQcdck_!!2037014288-0-cib.jpg"
-              }
-            ]
-        },
-        {
-          "id": 7,
-          "name": "Áo tay ngắn sọc",
-          "price": 200000,
-          "cat_id": 4,
-          "image": "https://bizweb.dktcdn.net/thumb/large/100/462/587/products/1-3fa000a0-c373-479e-b43e-23c9cbb0821a.png?v=1720431643417",
-          "quantity": 10,
-          "imgs":[
-              {
-                "name": 1,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01PgTGMn1zqsbcCBsrK_!!3304826766-0-cib.jpg"
-              },
-              {
-               "name": 2,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01B06EiT1zqsbdkG7YL_!!3304826766-0-cib.jpg"
-              },
-              {
-                "name": 3,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01VtiixS1zqsbcbPaEE_!!3304826766-0-cib.jpg"
-              }
-            ]
-      },
-      {
-         "id": 8,
-          "name": "Đầm polo xếp ly",
-          "price": 250000,
-          "cat_id": 1,
-          "image": "https://scontent.fsgn1-1.fna.fbcdn.net/v/t39.30808-6/462186121_961172376057325_5309033170091823994_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ar9QdPGWCHsQ7kNvgFqqJr9&_nc_ht=scontent.fsgn1-1.fna&_nc_gid=ADbf09Z53wOjFjTL2cEIL23&oh=00_AYBjUe4qQAttdknuO_-2IxgthINDm3HmQiH03CDuvdt_Nw&oe=670AD1AA",
-          "quantity": 10,
-          "imgs":[
-              {
-                "name": 1,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01cXgfEt1JemRKFLxY6_!!2217749681054-0-cib.jpg"
-              },
-              {
-               "name": 2,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01CdDjy51JemRKhrc3B_!!2217749681054-0-cib.jpg"
-              },
-              {
-                "name": 3,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01qRGa3K1JemRKfR1sU_!!2217749681054-0-cib.jpg"
-              }
-            ]
-      },
-      {
-          "id": 9,
-          "name": "Chân váy da",
-          "price": 180000,
-          "cat_id": 6,
-          "image":"https://i.pinimg.com/474x/95/14/09/9514091bcc63d58c1cb0dd36ebfc5d65.jpg",
-          "quantity": 10,
-          "imgs":[
-              {
-                "name": 1,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01vf0z9B2AJPYLe0P4X_!!2217605388182-0-cib.jpg"
-              },
-              {
-               "name": 2,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01icEwq12AJPYMRi5Bu_!!2217605388182-0-cib.jpg"
-              },
-              {
-                "name": 3,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01MQDz4S1yHKPbyAvPa_!!2218617786553-0-cib.jpg"
-              }
-            ]
-      },
-      {
-          "id": 10,
-          "name": "Áo sơ mi chiết eo",
-          "price": 120000,
-          "cat_id": 2,
-          "image":"https://i.pinimg.com/564x/90/69/3f/90693fa36cbf4ad03c5ee158409e2d25.jpg",
-          "quantity": 10,
-          "imgs":[
-              {
-                "name": 1,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01g5JY8N1qK3ivNd5pu_!!2212689065476-0-cib.jpg"
-              },
-              {
-               "name": 2,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01WAPUAN1qK3iuaYlGm_!!2212689065476-0-cib.jpg"
-              },
-              {
-                "name": 3,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01x2DsuY1qK3iprmbgO_!!2212689065476-0-cib.jpg"
-              }
-            ]
-      },
-      {
-          "id": 11,
-          "name": "Quần jeans dài",
-          "price": 250000,
-          "cat_id": 3,
-          "image":"https://cbu01.alicdn.com/img/ibank/O1CN017OyFHd1Nlt24DNDSb_!!2216993801611-0-cib.jpg",
-          "quantity": 10,
-          "imgs":[
-              {
-                "name": 1,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01975dbo1Nlt23AB338_!!2216993801611-0-cib.jpg"
-              },
-              {
-               "name": 2,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN015jPoKU1Nlt1yZRxMq_!!2216993801611-0-cib.jpg"
-              },
-              {
-                "name": 3,
-                "img": "https://cbu01.alicdn.com/img/ibank/O1CN01gPtRl71Nlt1u23Co6_!!2216993801611-0-cib.jpg"
-              }
-            ]
-      },
-      {
-          "id": 12,
-          "name": "Áo khoác nỉ bông",
-          "price": 270000,
-          "cat_id": 5,
-          "image": "https://i.pinimg.com/474x/2d/8e/85/2d8e85b8fb256ee3a469efbaa8443b13.jpg",
-          "quantity": 10,
-          "imgs":[
-            {
-              "name": 1,
-              "img": "https://cbu01.alicdn.com/img/ibank/O1CN01lsWXjl1DCUAYUCl5A_!!2215510970180-0-cib.jpg"
-            },
-            {
-             "name": 2,
-              "img": "https://cbu01.alicdn.com/img/ibank/O1CN01bCB8Ia1DCUAW5yaUJ_!!2215510970180-0-cib.jpg"
-            },
-            {
-              "name": 3,
-              "img": "https://cbu01.alicdn.com/img/ibank/O1CN013Aepb81nrXpkkbQly_!!2211527855143-0-cib.jpg"
-            }
-          ]
-      }
-    ],
-    
-        "featproducts": {
-          "all": {
-            "title": "Toàn bộ",
-            "products": [
-              {
-                "img": "https://i.pinimg.com/564x/ab/03/89/ab03893c3a83bbbbc2e57f3ed1d9b365.jpg",
-                "name": "Áo thun",
-                "price": 200000
-              },
-              {
-                "img": "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/461605209_955685083272721_6772750334680970427_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=CfwqolPT9QUQ7kNvgHwf9RS&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=ALIj7l3kYXnR7WTtvpl5FJC&oh=00_AYCvYyM4yJYQ2OkFtN1UDWvPeujszxhvGMA6ZbC_jjGPiQ&oe=6708BC36",
-                "name": "Đầm",
-                "price": 150000
-              },
-              {
-                "img": "https://i.pinimg.com/564x/c9/a8/df/c9a8dfe4388a838a50f1aded15739bf5.jpg",
-                "name": "Chân váy",
-                "price": 180000
-              },
-              {
-                "img": "https://i.pinimg.com/736x/b9/81/73/b981738137462f4227e9621ab5165c61.jpg",
-                "name": "Set áo váy",
-                "price": 180000
-              }
-            ]
-          },
-          "dress": {
-            "title": "Đầm",
-            "products": [
-              {
-                "img": "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/461605209_955685083272721_6772750334680970427_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=CfwqolPT9QUQ7kNvgHwf9RS&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=ALIj7l3kYXnR7WTtvpl5FJC&oh=00_AYCvYyM4yJYQ2OkFtN1UDWvPeujszxhvGMA6ZbC_jjGPiQ&oe=6708BC36",
-                "name": "Đầm hoa nhí",
-                "price": 170000
-              }
-            ]
-          },
-          "skirt": {
-            "title": "Chân váy",
-            "products": [
-              {
-                "img": "https://i.pinimg.com/564x/c9/a8/df/c9a8dfe4388a838a50f1aded15739bf5.jpg",
-                "name": "Chân váy tầng",
-                "price": 170000
-              }
-            ]
-          }
+          "name": 3,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01khT30G1mkO6pcHcg9_!!3839224992-0-cib.jpg"
         }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Chân váy xếp ly",
+      "price": 180000,
+      "cat_id": 6,
+      "image": "https://cbu01.alicdn.com/img/ibank/O1CN01p5GVQ71siuXxgy9XR_!!2218167105801-0-cib.jpg",
+      "quantity": 10,
+      "imgs": [
+        {
+          "name": 1,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01tvNArM1fRQN5AzBmK_!!2211916494003-0-cib.jpg"
+        },
+        {
+          "name": 2,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN011L7Pd71fRQND30fn7_!!2211916494003-0-cib.jpg"
+        },
+        {
+          "name": 3,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01rFtj2L24hmkMMaklE_!!841087423.jpg"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Áo sơ mi",
+      "price": 120000,
+      "cat_id": 2,
+      "image": "https://i.pinimg.com/564x/3f/04/cc/3f04ccfb0cec55c073e32efb8b3e2d87.jpg",
+      "quantity": 10,
+      "imgs": [
+        {
+          "name": 1,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01LfPe4S1Jh4I1AOga5_!!2216050971059-0-cib.jpg"
+        },
+        {
+          "name": 2,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01bttnN41Jh4I7265Ar_!!2216050971059-0-cib.jpg"
+        },
+        {
+          "name": 3,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01JXqX5120X1CQ5j7bv_!!2218148446858-0-cib.jpg"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Quần jeans đùi",
+      "price": 250000,
+      "cat_id": 3,
+      "image": "https://i.pinimg.com/564x/4b/6d/c3/4b6dc3dee71fa18a7811132e2a99bd40.jpg",
+      "quantity": 10,
+      "imgs": [
+        {
+          "name": 1,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01WaR2y42FOyEY6mZlK_!!2208857268871-0-cib.jpg"
+        },
+        {
+          "name": 2,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01itFQAp2FOyEa7hLRQ_!!2208857268871-0-cib.jpg"
+        },
+        {
+          "name": 3,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01ivwHDz1ChLIXcgOXE_!!2214879890112-0-cib.jpg"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Áo khoác da",
+      "price": 270000,
+      "cat_id": 5,
+      "image": "https://i.pinimg.com/564x/de/15/44/de1544bf8d0ad41c2051b23e21f207be.jpg",
+      "quantity": 10,
+      "imgs": [
+        {
+          "name": 1,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01ItpNwW1hXxJan43TW_!!2037014288-0-cib.jpg"
+        },
+        {
+          "name": 2,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN0116FVPT1hXxJan53qk_!!2037014288-0-cib.jpg"
+        },
+        {
+          "name": 3,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01rAEhWX1hXxJZQcdck_!!2037014288-0-cib.jpg"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Áo tay ngắn sọc",
+      "price": 200000,
+      "cat_id": 4,
+      "image": "https://bizweb.dktcdn.net/thumb/large/100/462/587/products/1-3fa000a0-c373-479e-b43e-23c9cbb0821a.png?v=1720431643417",
+      "quantity": 10,
+      "imgs": [
+        {
+          "name": 1,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01PgTGMn1zqsbcCBsrK_!!3304826766-0-cib.jpg"
+        },
+        {
+          "name": 2,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01B06EiT1zqsbdkG7YL_!!3304826766-0-cib.jpg"
+        },
+        {
+          "name": 3,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01VtiixS1zqsbcbPaEE_!!3304826766-0-cib.jpg"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Đầm polo xếp ly",
+      "price": 250000,
+      "cat_id": 1,
+      "image": "https://scontent.fsgn1-1.fna.fbcdn.net/v/t39.30808-6/462186121_961172376057325_5309033170091823994_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ar9QdPGWCHsQ7kNvgFqqJr9&_nc_ht=scontent.fsgn1-1.fna&_nc_gid=ADbf09Z53wOjFjTL2cEIL23&oh=00_AYBjUe4qQAttdknuO_-2IxgthINDm3HmQiH03CDuvdt_Nw&oe=670AD1AA",
+      "quantity": 10,
+      "imgs": [
+        {
+          "name": 1,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01cXgfEt1JemRKFLxY6_!!2217749681054-0-cib.jpg"
+        },
+        {
+          "name": 2,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01CdDjy51JemRKhrc3B_!!2217749681054-0-cib.jpg"
+        },
+        {
+          "name": 3,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01qRGa3K1JemRKfR1sU_!!2217749681054-0-cib.jpg"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Chân váy da",
+      "price": 180000,
+      "cat_id": 6,
+      "image": "https://i.pinimg.com/474x/95/14/09/9514091bcc63d58c1cb0dd36ebfc5d65.jpg",
+      "quantity": 10,
+      "imgs": [
+        {
+          "name": 1,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01vf0z9B2AJPYLe0P4X_!!2217605388182-0-cib.jpg"
+        },
+        {
+          "name": 2,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01icEwq12AJPYMRi5Bu_!!2217605388182-0-cib.jpg"
+        },
+        {
+          "name": 3,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01MQDz4S1yHKPbyAvPa_!!2218617786553-0-cib.jpg"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Áo sơ mi chiết eo",
+      "price": 120000,
+      "cat_id": 2,
+      "image": "https://i.pinimg.com/564x/90/69/3f/90693fa36cbf4ad03c5ee158409e2d25.jpg",
+      "quantity": 10,
+      "imgs": [
+        {
+          "name": 1,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01g5JY8N1qK3ivNd5pu_!!2212689065476-0-cib.jpg"
+        },
+        {
+          "name": 2,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01WAPUAN1qK3iuaYlGm_!!2212689065476-0-cib.jpg"
+        },
+        {
+          "name": 3,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01x2DsuY1qK3iprmbgO_!!2212689065476-0-cib.jpg"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Quần jeans dài",
+      "price": 250000,
+      "cat_id": 3,
+      "image": "https://cbu01.alicdn.com/img/ibank/O1CN017OyFHd1Nlt24DNDSb_!!2216993801611-0-cib.jpg",
+      "quantity": 10,
+      "imgs": [
+        {
+          "name": 1,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01975dbo1Nlt23AB338_!!2216993801611-0-cib.jpg"
+        },
+        {
+          "name": 2,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN015jPoKU1Nlt1yZRxMq_!!2216993801611-0-cib.jpg"
+        },
+        {
+          "name": 3,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01gPtRl71Nlt1u23Co6_!!2216993801611-0-cib.jpg"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Áo khoác nỉ bông",
+      "price": 270000,
+      "cat_id": 5,
+      "image": "https://i.pinimg.com/474x/2d/8e/85/2d8e85b8fb256ee3a469efbaa8443b13.jpg",
+      "quantity": 10,
+      "imgs": [
+        {
+          "name": 1,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01lsWXjl1DCUAYUCl5A_!!2215510970180-0-cib.jpg"
+        },
+        {
+          "name": 2,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01bCB8Ia1DCUAW5yaUJ_!!2215510970180-0-cib.jpg"
+        },
+        {
+          "name": 3,
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN013Aepb81nrXpkkbQly_!!2211527855143-0-cib.jpg"
+        }
+      ]
+    }
+  ],
+  "featproducts": {
+    "all": {
+      "title": "Toàn bộ",
+      "products": [
+        {
+          "img": "https://i.pinimg.com/564x/ab/03/89/ab03893c3a83bbbbc2e57f3ed1d9b365.jpg",
+          "name": "Áo thun",
+          "price": 200000
+        },
+        {
+          "img": "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/461605209_955685083272721_6772750334680970427_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=CfwqolPT9QUQ7kNvgHwf9RS&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=ALIj7l3kYXnR7WTtvpl5FJC&oh=00_AYCvYyM4yJYQ2OkFtN1UDWvPeujszxhvGMA6ZbC_jjGPiQ&oe=6708BC36",
+          "name": "Đầm",
+          "price": 150000
+        },
+        {
+          "img": "https://i.pinimg.com/564x/c9/a8/df/c9a8dfe4388a838a50f1aded15739bf5.jpg",
+          "name": "Chân váy",
+          "price": 180000
+        },
+        {
+          "img": "https://i.pinimg.com/736x/b9/81/73/b981738137462f4227e9621ab5165c61.jpg",
+          "name": "Set áo váy",
+          "price": 180000
+        }
+      ]
+    },
+    "dress": {
+      "title": "Đầm",
+      "products": [
+        {
+          "img": "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/461605209_955685083272721_6772750334680970427_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=CfwqolPT9QUQ7kNvgHwf9RS&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=ALIj7l3kYXnR7WTtvpl5FJC&oh=00_AYCvYyM4yJYQ2OkFtN1UDWvPeujszxhvGMA6ZbC_jjGPiQ&oe=6708BC36",
+          "name": "Đầm hoa nhí",
+          "price": 170000
+        }
+      ]
+    },
+    "skirt": {
+      "title": "Chân váy",
+      "products": [
+        {
+          "img": "https://i.pinimg.com/564x/c9/a8/df/c9a8dfe4388a838a50f1aded15739bf5.jpg",
+          "name": "Chân váy tầng",
+          "price": 170000
+        }
+      ]
+    }
+  },
+  "cart": [
+    {
+      "id": 2,
+      "name": "Đầm dáng xòe",
+      "price": 250000,
+      "image": "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/461605209_955685083272721_6772750334680970427_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=CfwqolPT9QUQ7kNvgHwf9RS&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=ALIj7l3kYXnR7WTtvpl5FJC&oh=00_AYCvYyM4yJYQ2OkFtN1UDWvPeujszxhvGMA6ZbC_jjGPiQ&oe=6708BC36",
+      "color": "Trắng",
+      "size": "M",
+      "quantity": 1
+    },
+    {
+      "id": 1,
+      "name": "Áo thun cổ V",
+      "price": 125500,
+      "image": "https://i.pinimg.com/564x/ab/03/89/ab03893c3a83bbbbc2e57f3ed1d9b365.jpg",
+      "color": "Trắng",
+      "size": "M",
+      "quantity": 1
+    }
+  ]
 }

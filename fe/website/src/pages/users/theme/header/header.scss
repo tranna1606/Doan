@@ -91,10 +91,18 @@ $bannerImg: '/assets/users/images/hero/banner.webp';
         padding: 24px 0;
         display: flex;
         justify-content: space-between;
-
-        li {
+         
+        li{
+            list-style: none;
+        }
+        .menu-button {
             list-style: none;
             position: relative;
+
+            &.active {
+            color: #f26398;
+            
+        }
 
             a {
                 text-decoration: none;

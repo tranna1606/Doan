@@ -1,9 +1,6 @@
 import { memo, useEffect, useState } from 'react';
 import Breadcrumb from '../theme/breadcrumb';
 import './productDetailPage.scss';
-import detail1 from 'assets/users/images/detail/detail1.jpg';
-import detail2 from 'assets/users/images/detail/detail2.webp';
-import detail3 from 'assets/users/images/detail/detail3.webp';
 import { AiOutlineCopy, AiOutlineEye, AiOutlineFacebook, AiOutlineInstagram } from 'react-icons/ai';
 import { fomatter } from 'utils/formatter';
 import { ProductCard } from 'component';
@@ -12,12 +9,13 @@ import { useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const ProductDetailPage = () => {
-    const [selectedColor, setSelectedColor] = useState('');
-    const availableColors = ['Đen', 'Trắng', 'Hồng'];
     const { id } = useParams();
+    const [selectedColor, setSelectedColor] = useState('');
     const [selectedSize, setSelectedSize] = useState('');
+    const [selectedQuantity, setSelectedQuantity] = useState(1);
+    const [product, setProduct] = useState({});
+    const availableColors = ['Đen', 'Trắng', 'Hồng'];
     const sizes = ['S', 'M', 'L']; 
-    const [quantity, setQuantity] = useState(1);
     useEffect(() => {
         console.log(id)
         if (id) {
@@ -25,20 +23,42 @@ const ProductDetailPage = () => {
         }
     }, [id]) 
 
-    const [product, setProduct] = useState({});
-
     const getProductData = async(id) => {
         const response = await axios.get('http://localhost:3000/products/' + id);
-        console.log(response)
-        console.log(response.data.imgs)
         if (response.status === 200) {
             const data = await response.data; 
             setProduct(data);
         }
     }
-    const handleAddToCart = () => {
-        console.log('Thêm vào giỏ hàng:', { product, selectedColor, selectedSize, quantity });
-    };
+    const addToCart = async (product) => {
+        const selectedProduct = {
+            id : product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            color: selectedColor,
+            size: selectedSize,
+            quantity: selectedQuantity
+        }
+        console.log(selectedProduct)
+        try {
+            const response = await fetch('http://localhost:3000/cart', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(selectedProduct)
+            });
+            if (response.ok) {
+              alert('Sản phẩm đã được thêm vào giỏ hàng!');
+              console.log(selectedProduct)
+            } else {
+              alert('Có lỗi xảy ra khi thêm sản phẩm.');
+            }
+          } catch (error) {
+            console.error('Lỗi:', error);
+          }
+    }
     return (
         <>
             <Breadcrumb name="Chi tiết sản phẩm" />
@@ -97,13 +117,13 @@ const ProductDetailPage = () => {
                         <div className="product__quantity">
                             <label>Số lượng:</label>
                             <div className="quantity-container">
-                                <span onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}className="quantity-btn">-</span>
-                                <span className="quantity-display">{quantity}</span>
-                                <span onClick={() => setQuantity(quantity + 1)} className="quantity-btn">+</span>
+                                <span onClick={() => setSelectedQuantity(selectedQuantity > 1 ? selectedQuantity - 1 : 1)}className="quantity-btn">-</span>
+                                <span className="quantity-display">{selectedQuantity}</span>
+                                <span onClick={() => setSelectedQuantity(selectedQuantity + 1)} className="quantity-btn">+</span>
                             </div>
                         </div>
                         {/* Thêm vào giỏ hàng */}
-                        <button className="add-to-cart" onClick={handleAddToCart}>
+                        <button className="add-to-cart" onClick={() => product.id ? addToCart(product) : alert('Sản phẩm không hợp lệ!')}>
                             Thêm vào giỏ hàng
                         </button>
                         <ul>
