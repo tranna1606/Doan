@@ -10,6 +10,9 @@ import CartPage from 'pages/users/CartPage';
 import ArticlesList from 'pages/users/ArticlePage/ArticleList/ArticleList';
 import ContactPage from 'pages/users/ContactPage';
 import AdminPage from 'pages/AdminPage';
+import LoginPage from 'pages/users/LoginPage';
+import PaymentPage from 'pages/users/PaymentPage';
+import OrderPage from 'pages/users/OrderPage';
 
 const renderUserRouter = () => {
     const userRouters = [
@@ -52,6 +55,20 @@ const renderUserRouter = () => {
             path: ROUTERS.USER.ADMIN,
             component: <AdminPage />,
             isAdmin: true,
+        },
+        {
+            path: ROUTERS.USER.LOGIN,
+            component: <LoginPage />,
+            isAdmin: false,
+        },
+        {
+            path: ROUTERS.USER.PAYMENT,
+            component: <PaymentPage/>,
+            isAdmin: false,
+        },{
+            path: ROUTERS.USER.ORDER,
+            component: <OrderPage/>,
+            isAdmin: false,
         },
     ];
 

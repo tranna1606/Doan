@@ -98,6 +98,10 @@
     padding: 16px 35px;
     float: right;
     cursor: pointer;
+    a{
+        color: inherit;
+        text-decoration: none;
+    }
 }
 
 .btn-container {

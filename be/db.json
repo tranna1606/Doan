@@ -1,5 +1,17 @@
 {
   "users": [
+    {},
+    {
+      "sub": "113716942828833729247",
+      "name": "Na Trần Thị",
+      "given_name": "Na",
+      "family_name": "Trần Thị",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJNkmuXXQ169gtPZy1H2syldO8n2nITzObjXXCQsJMJaIn7cgU=s96-c",
+      "email": "2151053040na@ou.edu.vn",
+      "email_verified": true,
+      "hd": "ou.edu.vn",
+      "id": 2
+    },
     {
       "sub": "102469249055200850151",
       "name": "Na Tran",
@@ -8,24 +20,24 @@
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocLN0IfvWqIEjyGyUcGAv93-zqiwYDbJiJTLvo-MesoU3177Iw=s96-c",
       "email": "tranthina1606203@gmail.com",
       "email_verified": true,
-      "id": 1
-    },
-    {}
+      "id": 3
+    }
   ],
   "loggedUser": {
-    "sub": "102469249055200850151",
-    "name": "Na Tran",
+    "sub": "113716942828833729247",
+    "name": "Na Trần Thị",
     "given_name": "Na",
-    "family_name": "Tran",
-    "picture": "https://lh3.googleusercontent.com/a/ACg8ocLN0IfvWqIEjyGyUcGAv93-zqiwYDbJiJTLvo-MesoU3177Iw=s96-c",
-    "email": "tranthina1606203@gmail.com",
+    "family_name": "Trần Thị",
+    "picture": "https://lh3.googleusercontent.com/a/ACg8ocJNkmuXXQ169gtPZy1H2syldO8n2nITzObjXXCQsJMJaIn7cgU=s96-c",
+    "email": "2151053040na@ou.edu.vn",
     "email_verified": true,
-    "id": 1
+    "hd": "ou.edu.vn",
+    "id": 4
   },
   "categories": [
     {
       "id": 1,
-      "name": "Đầm"
+      "name": "Đầm 1"
     },
     {
       "id": 2,
@@ -46,28 +58,32 @@
     {
       "id": 6,
       "name": "Chân váy"
+    },
+    {
+      "name": "Đầm 2",
+      "id": 7
     }
   ],
   "products": [
     {
-      "id": 2,
-      "name": "Đầm dáng xòe",
-      "price": 250000,
-      "cat_id": 1,
-      "image": "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/461605209_955685083272721_6772750334680970427_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=CfwqolPT9QUQ7kNvgHwf9RS&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=ALIj7l3kYXnR7WTtvpl5FJC&oh=00_AYCvYyM4yJYQ2OkFtN1UDWvPeujszxhvGMA6ZbC_jjGPiQ&oe=6708BC36",
+      "id": 1,
+      "name": "Áo thun cổ V",
+      "price": 125000,
+      "cat_id": 4,
+      "image": "https://cbu01.alicdn.com/img/ibank/O1CN013mvKU91InBljL5uyW_!!4012130937-0-cib.jpg",
       "quantity": 10,
       "imgs": [
         {
           "name": 1,
-          "img": "https://cbu01.alicdn.com/img/ibank/O1CN018qRJV21mkO6mI1A4w_!!3839224992-0-cib.jpg"
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01TWRYpw1Y2xw6gN0CH_!!2210241523002-0-cib.jpg"
         },
         {
           "name": 2,
-          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01DjpEMy1mkO6n4DK3U_!!3839224992-0-cib.jpg"
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01VRFoBc1InBlicJ0Pv_!!4012130937-0-cib.jpg"
         },
         {
           "name": 3,
-          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01khT30G1mkO6pcHcg9_!!3839224992-0-cib.jpg"
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01XMAXFz1Y2xwDVH7qs_!!2210241523002-0-cib.jpg"
         }
       ]
     },
@@ -184,7 +200,7 @@
     {
       "id": 8,
       "name": "Đầm polo xếp ly",
-      "price": 250000,
+      "price": "195000",
       "cat_id": 1,
       "image": "https://scontent.fsgn1-1.fna.fbcdn.net/v/t39.30808-6/462186121_961172376057325_5309033170091823994_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ar9QdPGWCHsQ7kNvgFqqJr9&_nc_ht=scontent.fsgn1-1.fna&_nc_gid=ADbf09Z53wOjFjTL2cEIL23&oh=00_AYBjUe4qQAttdknuO_-2IxgthINDm3HmQiH03CDuvdt_Nw&oe=670AD1AA",
       "quantity": 10,
@@ -290,6 +306,28 @@
           "img": "https://cbu01.alicdn.com/img/ibank/O1CN013Aepb81nrXpkkbQly_!!2211527855143-0-cib.jpg"
         }
       ]
+    },
+    {
+      "name": "Áo thun tay ngắn",
+      "price": "89000",
+      "quantity": "5",
+      "image": "https://i.pinimg.com/564x/9a/cb/66/9acb6617feabcd605ba5a7ea09dd22dc.jpg",
+      "imgs": [
+        {
+          "name": "",
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN01ucSuY71qXniIwytJ1_!!2218085585506-0-cib.jpg"
+        },
+        {
+          "name": "",
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN016BVvVP1qXniIwyUKp_!!2218085585506-0-cib.jpg"
+        },
+        {
+          "name": "",
+          "img": "https://cbu01.alicdn.com/img/ibank/O1CN013VaNn71qXniHQZopB_!!2218085585506-0-cib.jpg"
+        }
+      ],
+      "cat_id": 4,
+      "id": 13
     }
   ],
   "featproducts": {
@@ -341,30 +379,111 @@
   },
   "cart": [
     {
-      "id": 2,
-      "name": "Đầm dáng xòe",
-      "price": 250000,
-      "image": "https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/461605209_955685083272721_6772750334680970427_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=CfwqolPT9QUQ7kNvgHwf9RS&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=ALIj7l3kYXnR7WTtvpl5FJC&oh=00_AYCvYyM4yJYQ2OkFtN1UDWvPeujszxhvGMA6ZbC_jjGPiQ&oe=6708BC36",
+      "id": 9,
+      "name": "Chân váy da",
+      "price": 180000,
+      "image": "https://i.pinimg.com/474x/95/14/09/9514091bcc63d58c1cb0dd36ebfc5d65.jpg",
       "color": "Đen",
-      "size": "S",
+      "size": "M",
       "quantity": 1,
       "variants": [
         {
           "color": "Đen",
-          "size": "S",
-          "quantity": 1
-        },
-        {
-          "color": "Đen",
           "size": "M",
-          "quantity": 1
-        },
-        {
-          "color": "Đen",
-          "size": "L",
           "quantity": 1
         }
       ]
+    }
+  ],
+  "orders": [
+    {
+      "user": {
+        "name": "Tran na",
+        "phone": "0783448693",
+        "address": "29 DHT 45",
+        "city": "HCM",
+        "district": "Q1",
+        "ward": "P2",
+        "paymentMethod": ""
+      },
+      "items": [
+        {
+          "id": 3,
+          "name": "Chân váy xếp ly",
+          "price": 180000,
+          "image": "https://cbu01.alicdn.com/img/ibank/O1CN01p5GVQ71siuXxgy9XR_!!2218167105801-0-cib.jpg",
+          "color": "Đen",
+          "size": "S",
+          "quantity": 1,
+          "variants": [
+            {
+              "color": "Đen",
+              "size": "S",
+              "quantity": 1
+            },
+            {
+              "color": "Đen",
+              "size": "M",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "name": "Áo thun cổ V",
+          "price": 125000,
+          "image": "https://cbu01.alicdn.com/img/ibank/O1CN013mvKU91InBljL5uyW_!!4012130937-0-cib.jpg",
+          "color": "Đen",
+          "size": "M",
+          "quantity": 1,
+          "variants": [
+            {
+              "color": "Đen",
+              "size": "M",
+              "quantity": 2
+            }
+          ]
+        }
+      ],
+      "totalAmount": 625000,
+      "discountAmount": 10000,
+      "shippingCost": 15000,
+      "status": "Chờ xác nhận",
+      "id": 1
+    },
+    {
+      "user": {
+        "name": "Tran na",
+        "phone": "0783448693",
+        "address": "29 DHT 45",
+        "city": "HCM",
+        "district": "Q1",
+        "ward": "P2",
+        "paymentMethod": ""
+      },
+      "items": [
+        {
+          "id": 9,
+          "name": "Chân váy da",
+          "price": 180000,
+          "image": "https://i.pinimg.com/474x/95/14/09/9514091bcc63d58c1cb0dd36ebfc5d65.jpg",
+          "color": "Đen",
+          "size": "M",
+          "quantity": 1,
+          "variants": [
+            {
+              "color": "Đen",
+              "size": "M",
+              "quantity": 1
+            }
+          ]
+        }
+      ],
+      "totalAmount": 195000,
+      "discountAmount": 10000,
+      "shippingCost": 15000,
+      "status": "Chờ xác nhận",
+      "id": 2
     }
   ]
 }

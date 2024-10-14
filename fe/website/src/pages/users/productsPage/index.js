@@ -10,13 +10,38 @@ const ProductsPage = () => {
     const categories = useCategories();
     const products = useProducts();
     const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+    const [sortType, setSortType] = useState('asc');
+    const [activeSort, setActiveSort] = useState('asc');
 
-     // Lọc sản phẩm theo danh mục đã chọn
-     const filteredProducts = selectedCategoryId
+    const filteredProducts = selectedCategoryId
      ? products.filter(product => product.cat_id === selectedCategoryId)
-     : products; // Nếu không có danh mục nào được chọn, hiển thị tất cả sản phẩm
+     : products;
 
-    const sorts = ['Giá từ thấp đến cao', 'Giá từ cao tới thấp', 'Cũ đến mới', 'Mới đến cũ', 'Bán chạy nhất'];
+     const sortedProducts = [...filteredProducts].sort((a, b) => {
+        switch (sortType) {
+            case 'asc':
+                return a.price - b.price; // Sắp xếp từ thấp đến cao
+            case 'desc':
+                return b.price - a.price; // Sắp xếp từ cao đến thấp
+            // case 'newest':
+            //     return new Date(b.createdAt) - new Date(a.createdAt); // Cũ đến mới
+            // case 'oldest':
+            //     return new Date(a.createdAt) - new Date(b.createdAt); // Mới đến cũ
+            // case 'best-seller':
+            //     return b.sales - a.sales; // Bán chạy nhất
+            default:
+                return 0;
+        }
+    });
+
+    const sorts = [
+        { label: 'Giá từ thấp đến cao', value: 'asc' },
+        { label: 'Giá từ cao tới thấp', value: 'desc' },
+        // { label: 'Cũ đến mới', value: 'newest' },
+        // { label: 'Mới đến cũ', value: 'oldest' },
+        // { label: 'Bán chạy nhất', value: 'best-seller' },
+    ];
+
     return (
         <>
             <Breadcrumb name="Danh sách sản phẩm" />
@@ -28,22 +53,15 @@ const ProductsPage = () => {
                                 <h3>Tìm kiếm</h3>
                                 <input type="text" />
                             </div>
-                            {/* <div className="slidebar__item">
-                                <h3>Mức giá</h3>
-                                <div className="price__range_wrap">
-                                    <p>Từ</p>
-                                    <input type="number" min={0} />
-                                    <p>Đến</p>
-                                    <input type="number" min={0} />
-                                </div>
-                            </div> */}
-                           
-                            <div className="slidebar__item">
+                           <div className="slidebar__item">
                                 <h3>Thể loại khác</h3>
                                 <div className="product__list">
-                                <ul>
+                                    <ul>
                                         {categories.map((category) => (
-                                            <li key={category.id}>
+                                            <li 
+                                                key={category.id} 
+                                                className={selectedCategoryId === category.id ? 'active' : ''}
+                                            >
                                                 <Link 
                                                     to="#" 
                                                     onClick={() => setSelectedCategoryId(category.id)} // Cập nhật ID danh mục khi nhấn vào
@@ -53,15 +71,24 @@ const ProductsPage = () => {
                                             </li>
                                         ))}
                                     </ul>
-                                    
                                 </div>
                             </div>
                             <div className="slidebar__item">
                                 <h3>Sắp xếp</h3>
                                 <div className="tags">
-                                    {sorts.map((item, key) => (
-                                        <div className={`tag ${key === 0 ? 'active' : ''}`} key={key}>
-                                            {item}
+                                    {sorts.map((item) => (
+                                        <div 
+                                            className={`tag ${activeSort === item.value ? 'active' : ''}`} 
+                                            key={item.value}
+                                            onClick={() => {
+                                                setSortType(item.value);
+                                                setActiveSort(item.value); 
+                                                if (item.value === 'asc' || item.value === 'desc') {
+                                                    setSelectedCategoryId(null); 
+                                                }
+                                            }}
+                                        >
+                                            {item.label}
                                         </div>
                                     ))}
                                 </div>
@@ -70,16 +97,20 @@ const ProductsPage = () => {
                     </div>
                     <div className="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                         <div className="row">
-                            {filteredProducts.map((product, key) => (
-                                <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12" key={key}>
-                                    <ProductCard 
-                                    id={product.id}
-                                    name={product.name} 
-                                    img={product.image} 
-                                    price={product.price} 
-                                    />
-                                </div>
-                            ))}
+                            {sortedProducts.length > 0 ? (
+                                sortedProducts.map((product) => (
+                                    <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12" key={product.id}>
+                                        <ProductCard 
+                                            id={product.id}
+                                            name={product.name} 
+                                            img={product.image} 
+                                            price={product.price} 
+                                        />
+                                    </div>
+                                ))
+                            ) : (
+                                <p>Không có sản phẩm nào.</p>
+                            )}
                         </div>
                     </div>
                 </div>

@@ -7,6 +7,9 @@ export const ROUTERS = {
         CART : '/gio-hang',
         ARTICLE:'/bai-viet',
         CONTACT:'/lien-he',
-        ADMIN: '/admin'
+        ADMIN: '/admin',
+        PAYMENT: '/thanh-toan',
+        LOGIN: '/login',
+        ORDER:  '/order'
     },
 };

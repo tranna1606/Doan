@@ -81,13 +81,14 @@ $bannerImg: '/assets/users/images/hero/banner.webp';
     .btn-logout{
         margin-left : 10px;
     }
+    .avatar{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
 }
-.avatar{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    object-fit: cover;
-}
+
 
 .header__menu {
     ul {
@@ -577,4 +578,8 @@ $bannerImg: '/assets/users/images/hero/banner.webp';
 .btn-login{
     border: none;
     cursor: pointer;
+
+    a{
+        text-decoration: none;
+    }
 }

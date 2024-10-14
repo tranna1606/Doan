@@ -5,6 +5,7 @@ import {
     AiFillFacebook,
     AiFillInstagram,
     AiFillLinkedin,
+    AiFillTruck,
     AiOutlineDownCircle,
     AiOutlineMenu,
     AiOutlinePhone,
@@ -25,8 +26,9 @@ import SearchResults from 'component/SearchResults/index';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SiShopee } from "react-icons/si";
-const Header = ({categoryId}) => {
-    const [user, setUser] = useState(null);
+import { useUser } from 'core/UserContext';
+import Cookies from 'js-cookie'
+const Header = ({categoryId}) => { 
     const categories = useCategories()
     const location = useLocation();
     const [isHome, setIsHome] = useState(location.pathname.length <= 1); //do trang home kh có gì
@@ -39,7 +41,9 @@ const Header = ({categoryId}) => {
     const [selectedMenu, setSelectedMenu] = useState('');
     const navigate = useNavigate();
     const [cartItems, setCartItems] = useState([]);
-    
+
+    const { user, login, logout} = useUser();
+    const [orderCount, setOrderCount] = useState(0);
     const cartItemCount = cartItems.length;
     const handleCategoryClick = (categoryId) => {
         navigate(`/san-pham/${categoryId}`);
@@ -67,185 +71,30 @@ const Header = ({categoryId}) => {
             setSearchResults([]);
         });
     }, [searchValue]); 
-    
-     // Kiểm tra trạng thái đăng nhập khi trang được tải lại
-    useEffect(() => {
-        const checkLoggedInUser = async () => {
-            try {
-                const res = await axios.get('http://localhost:3000/loggedUser');
-                if (res.data && Object.keys(res.data).length > 0) {
-                    setUser(res.data);
-                }
-            } catch (err) {
-                console.error(err);
-            }
-        };
 
-        checkLoggedInUser();
-    }, []);
-    const handleLogin = useGoogleLogin({
-        onSuccess: async (response) => {
-            try {
-                const userRes = await axios.get(
-                    "https://www.googleapis.com/oauth2/v3/userinfo",
-                    {
-                        headers: {
-                            Authorization: `Bearer ${response.access_token}`
-                        }
-                    }
-                );
-                const userData = userRes.data;
-    
-                // Kiểm tra xem người dùng đã tồn tại trong users chưa
-                const existingUserRes = await axios.get(`http://localhost:3000/users?email=${userData.email}`);
-                let userId;
-                if (existingUserRes.data.length === 0) {
-                    // Nếu chưa tồn tại, thêm người dùng vào users
-                    const newUserRes = await axios.post('http://localhost:3000/users', userData);
-                    userId = newUserRes.data.id; // Lưu id của user mới
-                } else {
-                    userId = existingUserRes.data[0].id; // Lấy id của người dùng đã tồn tại
-                }
-    
-                // Lưu thông tin người dùng vào loggedUser
-                await axios.post('http://localhost:3000/loggedUser', { ...userData, id: userId });
-    
-                // Cập nhật state với userId
-                setUser({ ...userData, id: userId });
-                console.log(userData);
-            } catch (err) {
-                console.error(err);
-            }
-        },
-    });
-    
-//     const handleLogin = useGoogleLogin({
-//     onSuccess: async (response) => {
-//         try {
-//             const userRes = await axios.get(
-//                 "https://www.googleapis.com/oauth2/v3/userinfo",
-//                 {
-//                     headers: {
-//                         Authorization: `Bearer ${response.access_token}`
-//                     }
-//                 }
-//             );
-//             const userData = userRes.data;
+        // Hàm lấy dữ liệu giỏ hàng
 
-//             // Kiểm tra xem người dùng đã tồn tại trong users chưa
-//             const existingUserRes = await axios.get(`http://localhost:3000/users?email=${userData.email}`);
-//             if (existingUserRes.data.length === 0) {
-//                 // Nếu chưa tồn tại, thêm người dùng vào users
-//                 await axios.post('http://localhost:3000/users', userData);
-//             }
-
-//             // Lấy thông tin người dùng đã thêm để lấy ID
-//             const userId = existingUserRes.data.length > 0 ? existingUserRes.data[0].id : (await axios.get(`http://localhost:3000/users?email=${userData.email}`)).data[0].id;
-
-//             // Tạo đối tượng loggedUser với ID
-//             const loggedUserData = {
-//                 id: userId, // Sử dụng ID của người dùng
-//                 email: userData.email,
-//                 name: userData.name,
-//                 picture: userData.picture
-//             };
-
-//             // Lưu thông tin người dùng vào loggedUser
-//             await axios.post('http://localhost:3000/loggedUser', loggedUserData);
-            
-//             setUser(loggedUserData); // Cập nhật state user
-//             console.log(loggedUserData);
-//         } catch (err) {
-//             console.error(err);
-//         }
-//     },
-// });
-
-    // const handleLogin = useGoogleLogin({
-    //     onSuccess: async (response) => {
-    //         try {
-    //             const userRes = await axios.get(
-    //                 "https://www.googleapis.com/oauth2/v3/userinfo",
-    //                 {
-    //                     headers: {
-    //                         Authorization: `Bearer ${response.access_token}`
-    //                     }
-    //                 }
-    //             );
-    //             const userData = userRes.data;
-    
-    //             // Kiểm tra xem người dùng đã tồn tại trong users chưa
-    //             const existingUserRes = await axios.get(`http://localhost:3000/users?email=${userData.email}`);
-    //             if (existingUserRes.data.length === 0) {
-    //                 // Nếu chưa tồn tại, thêm người dùng vào users
-    //                 await axios.post('http://localhost:3000/users', userData);
-    //             }
-    
-    //             // Lấy thông tin người dùng đã được thêm vào để có ID
-    //             const userIdRes = await axios.get(`http://localhost:3000/users?email=${userData.email}`);
-    //             const newUser = userIdRes.data[0]; // Lấy người dùng mới được thêm vào
-    
-    //             // Tạo một đối tượng mới cho loggedUser chỉ chứa thông tin cần thiết
-    //             const loggedUserData = {
-    //                 id: newUser.id, // Sử dụng ID của người dùng mới
-    //                 email: newUser.email,
-    //                 name: newUser.name,
-    //                 picture: newUser.picture
-    //             };
-    
-    //             // Lưu thông tin người dùng vào loggedUser
-    //             await axios.post('http://localhost:3000/loggedUser', loggedUserData);
-                
-    //             setUser(newUser); // Đặt người dùng mới vào state
-               
-    //         } catch (err) {
-    //             console.error(err);
-    //         }
-    //     },
-    // });
- 
-
-    // const handleLogout = async () => {
-    //     try {
-    //         // Xóa tất cả dữ liệu trong loggedUser
-    //         await axios.delete('http://localhost:3000/loggedUser'); // Xóa tất cả thông tin người dùng trong loggedUser
-    //         // Cập nhật state user
-    //         setUser({}); // Hoặc setUser({}) nếu bạn muốn đặt về một đối tượng trống
-    //         console.log("Đăng xuất thành công");
-    //     } catch (err) {
-    //         console.error("Đăng xuất thất bại:", err);
-    //     }
-    // };
-    // const handleLogout = async () => {
-    //     try {
-    //         const loggedUserRes = await axios.get('http://localhost:3000/loggedUser');
-    //         console.log("Thông tin loggedUser:", loggedUserRes.data); // Kiểm tra dữ liệu
-            
-    //         if (loggedUserRes.data.length > 0) {
-    //             const loggedUserId = loggedUserRes.data[0].id; // Lấy ID của người dùng
-    
-    //             // Xóa thông tin người dùng trong loggedUser
-    //             await axios.delete(`http://localhost:3000/loggedUser/${loggedUserId}`);
-    //             setUser({}); // Đặt lại trạng thái người dùng
-    //             console.log("Đăng xuất thành công");
-    //         } else {
-    //             console.log("Không có người dùng nào đăng nhập.");
-    //         }
-    //     } catch (err) {
-    //         console.error("Đăng xuất thất bại:", err);
-    //     }
-    // };
-    const handleLogout = async () => {
+    const fetchCartItems = async () => {
         try {
-            // Lấy ID của loggedUser trước khi xóa
-            const loggedUserResponse = await axios.get('http://localhost:3000/loggedUser');
-            const loggedUserId = loggedUserResponse.data.id; // Lấy ID của loggedUser
-            
-            // Xóa dữ liệu trong loggedUser
-            await axios.delete(`http://localhost:3000/loggedUser/${loggedUserId}`); // Xóa theo ID
+            const response = await axios.get('http://localhost:3000/cart');
+            setCartItems(response.data);
+        } catch (error) {
+            console.error('Error fetching cart items:', error);
+        }
+    };
+    
+   
+    
+    useEffect(() => { 
+        fetchCartItems();
+    }, []);
+  
+    
+    const handleLogout = async () => {
+        try { 
             
             // Cập nhật state user
-            setUser({}); // Đặt lại state user thành đối tượng rỗng
+            logout(); // Đặt lại state user thành đối tượng rỗng
             console.log("Đăng xuất thành công");
         } catch (err) {
             console.error("Đăng xuất thất bại:", err);
@@ -307,24 +156,20 @@ const Header = ({categoryId}) => {
         const isHome = location.pathname.length <= 1;
         setIsHome(isHome);
         setShowCategories(isHome);
-    }, [location]);
-    
-        useEffect(() => {
-            // Hàm lấy dữ liệu giỏ hàng
-            const fetchCartItems = async () => {
-                try {
-                    const response = await axios.get('http://localhost:3000/cart');
-                    setCartItems(response.data);
-                } catch (error) {
-                    console.error('Error fetching cart items:', error);
-                }
-            };
-    
-            fetchCartItems();
-        }, []);
-    
-        // Đếm số lượng sản phẩm trong giỏ hàng
-        
+    }, [location]);  
+
+    useEffect(() => {
+        const fetchOrderCount = async () => {
+            try {
+                const response = await axios.get("http://localhost:3000/order");
+                setOrderCount(response.data.length); 
+            } catch (error) {
+                console.error("Có lỗi xảy ra khi lấy số lượng đơn hàng:", error);
+            }
+        };
+
+        fetchOrderCount(); 
+    }, []); 
     return (
         <>
             
@@ -463,7 +308,9 @@ const Header = ({categoryId}) => {
                                             
                                         </>
                                     ) : (
-                                        <button className= "btn-login" onClick={handleLogin}>Đăng nhập</button>
+                                        <button className= "btn-login" >
+                                            <Link to={ROUTERS.USER.LOGIN}> Đăng nhập</Link>
+                                        </button>
                                     )}
                                 </li>
                             </ul>
@@ -510,9 +357,6 @@ const Header = ({categoryId}) => {
                     </div>
                     <div className="col-lg-3 ">
                         <div className="header__cart">
-                            {/* <div className="header__cart_price">
-                                <span>{fomatter(1120000)}</span>
-                            </div> */}
                             <ul>
                                 <li>
                                     <Link to={ROUTERS.USER.CART} >
@@ -520,9 +364,16 @@ const Header = ({categoryId}) => {
                                         <span>{cartItemCount}</span>
                                     </Link>
                                     
+                                </li><li>
+                                    <Link to={ROUTERS.USER.ORDER} >
+                                        <AiFillTruck />
+                                        <span>{orderCount}</span>
+                                    </Link>
+                                    
                                 </li>
                             </ul>
                         </div>
+                        
                         <div className="humberger__open">
                             <AiOutlineMenu
                                 onClick={() => {
@@ -549,8 +400,7 @@ const Header = ({categoryId}) => {
 
                         <ul className={isShowCategories ? '' : 'hidden'}>
                             {categories.map((category) => (
-                                <li key={category.id}>
-
+                                <li key={category.id}> 
                                     <Link to={`/san-pham/${category.id}`} onClick={() => handleCategoryClick(category.id)}>
                                      {category.name} </Link>
                                 </li>

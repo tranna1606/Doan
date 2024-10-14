@@ -6,7 +6,14 @@ import './admin.scss';
 const AdminPage = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [newProduct, setNewProduct] = useState({ name: '', price: '', quantity: '', image: '' });
+  const [newProduct, setNewProduct] = useState({
+    name: '',
+    price: '',
+    quantity: '',
+    image: '',
+    imgs: [{ name: '', img: '' }, { name: '', img: '' }, { name: '', img: '' }] 
+  });
+  const [newCategory, setNewCategory] = useState({ name: '' });
   const [editingProduct, setEditingProduct] = useState(null);
   const [editingCategory, setEditingCategory] = useState(null);
 
@@ -37,23 +44,39 @@ const AdminPage = () => {
   // Thêm sản phẩm mới
   const handleAddProduct = async () => {
     try {
-      await axios.post('http://localhost:3000/products', newProduct);
+      // Kiểm tra nếu 3 hình ảnh đã được nhập
+      if (newProduct.imgs.some(img => img.img === '')) {
+        alert('Vui lòng nhập đủ 3 hình ảnh!');
+        return;
+      }
+
+      await axios.post('http://localhost:3000/products', { ...newProduct, cat_id: parseInt(newProduct.cat_id) });
       fetchProducts();
-      setNewProduct({ name: '', price: '', quantity: '', image: '' });
+      setNewProduct({
+        name: '',
+        price: '',
+        quantity: '',
+        image: '',
+        imgs: [{ name: '', img: '' }, { name: '', img: '' }, { name: '', img: '' }] // Reset lại thông tin hình ảnh
+      });
     } catch (error) {
       console.error('Error adding product:', error);
     }
   };
-
   // Xóa sản phẩm
   const handleDeleteProduct = async (id) => {
-    try {
-      await axios.delete(`http://localhost:3000/products/${id}`);
-      fetchProducts();
-    } catch (error) {
-      console.error('Error deleting product:', error);
+    // Hiển thị hộp thoại xác nhận
+    const confirmDelete = window.confirm("Bạn có chắc chắn muốn xóa sản phẩm này?");
+    
+    if (confirmDelete) {
+        try {
+            await axios.delete(`http://localhost:3000/products/${id}`);
+            fetchProducts(); // Cập nhật lại danh sách sản phẩm
+        } catch (error) {
+            console.error('Error deleting product:', error);
+        }
     }
-  };
+};
 
   // Bắt đầu chỉnh sửa sản phẩm
   const startEditProduct = (product) => {
@@ -69,6 +92,20 @@ const AdminPage = () => {
     } catch (error) {
       console.error('Error editing product:', error);
     }
+  };
+  //Thêm danh mục sản phẩm
+  const handleAddCategory = async () => {
+    try {
+      await axios.post('http://localhost:3000/categories', newCategory);
+      fetchCategories();
+      setNewCategory({ name: '' }); // Reset input
+    } catch (error) {
+      console.error('Error adding category:', error);
+    }
+  };
+  const handleCategoryInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewCategory({ ...newCategory, [name]: value });
   };
 
   // Sửa danh mục
@@ -88,13 +125,18 @@ const AdminPage = () => {
 
   // Xóa danh mục
   const handleDeleteCategory = async (id) => {
-    try {
-      await axios.delete(`http://localhost:3000/categories/${id}`);
-      fetchCategories();
-    } catch (error) {
-      console.error('Error deleting category:', error);
+    // Hiển thị hộp thoại xác nhận
+    const confirmDelete = window.confirm("Bạn có chắc chắn muốn xóa danh mục này?");
+    
+    if (confirmDelete) {
+        try {
+            await axios.delete(`http://localhost:3000/categories/${id}`);
+            fetchCategories(); // Gọi lại hàm fetchCategories để cập nhật danh sách
+        } catch (error) {
+            console.error('Error deleting category:', error);
+        }
     }
-  };
+};
 
   // Cập nhật state khi nhập dữ liệu
   const handleInputChange = (e) => {
@@ -107,6 +149,11 @@ const AdminPage = () => {
       setNewProduct({ ...newProduct, [name]: value });
     }
   };
+  const handleImgChange = (index, field, value) => {
+    const imgs = [...newProduct.imgs];
+    imgs[index][field] = value;
+    setNewProduct({ ...newProduct, imgs });
+  };
 
   return (
     <div className="admin-page">
@@ -116,12 +163,36 @@ const AdminPage = () => {
       <div className="add-product">
         <h2>Add New Product</h2>
         <input type="text" name="name" placeholder="Name" value={newProduct.name} onChange={handleInputChange} />
-        <input type="text" name="price" placeholder="Price" value={newProduct.price} onChange={handleInputChange} />
-        <input type="text" name="quantity" placeholder="Quantity" value={newProduct.quantity} onChange={handleInputChange} />
-        <input type="text" name="image" placeholder="Image URL" value={newProduct.image} onChange={handleInputChange} />
+        <input type="number" name="price" placeholder="Price" value={newProduct.price} onChange={handleInputChange} />
+        <input type="number" name="quantity" placeholder="Quantity" value={newProduct.quantity} onChange={handleInputChange} />
+        
+        <select name="cat_id" onChange={(e) => setNewProduct({ ...newProduct, cat_id: e.target.value })}>
+          <option value="">Chọn danh mục</option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
+        </select>
+        
+        <input type="text" name="image" placeholder="Main Image URL" value={newProduct.image} onChange={handleInputChange} />
+
+        {/* Nhập 3 hình ảnh */}
+        <h3>Image URLs (3 required)</h3>
+        {newProduct.imgs.map((img, index) => (
+          <div key={index}>
+            <input
+              type="text"
+              placeholder={`Image URL ${index + 1}`}
+              value={img.img}
+              onChange={(e) => handleImgChange(index, 'img', e.target.value)}
+            />
+          </div>
+        ))}
+
         <button onClick={handleAddProduct}>Add Product</button>
       </div>
-
+     
       {/* Danh sách sản phẩm */}
       <div className="product-list">
         <h2>Product List</h2>
@@ -151,7 +222,11 @@ const AdminPage = () => {
           </div>
         ))}
       </div>
-
+      <div className="add-category">
+        <h2>Add New Category</h2>
+        <input type="text" name="name" placeholder="Category Name" value={newCategory.name} onChange={handleCategoryInputChange} />
+        <button onClick={handleAddCategory}>Add Category</button>
+      </div>
       {/* Danh sách danh mục */}
       <div className="category-list">
         <h2>Category List</h2>
