@@ -393,9 +393,41 @@
           "quantity": 1
         }
       ]
+    },
+    {
+      "id": 8,
+      "name": "Đầm polo xếp ly",
+      "price": "195000",
+      "image": "https://scontent.fsgn1-1.fna.fbcdn.net/v/t39.30808-6/462186121_961172376057325_5309033170091823994_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ar9QdPGWCHsQ7kNvgFqqJr9&_nc_ht=scontent.fsgn1-1.fna&_nc_gid=ADbf09Z53wOjFjTL2cEIL23&oh=00_AYBjUe4qQAttdknuO_-2IxgthINDm3HmQiH03CDuvdt_Nw&oe=670AD1AA",
+      "color": "Đen",
+      "size": "S",
+      "quantity": 1,
+      "variants": [
+        {
+          "color": "Đen",
+          "size": "S",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Áo sơ mi chiết eo",
+      "price": 120000,
+      "image": "https://i.pinimg.com/564x/90/69/3f/90693fa36cbf4ad03c5ee158409e2d25.jpg",
+      "color": "Trắng",
+      "size": "M",
+      "quantity": 1,
+      "variants": [
+        {
+          "color": "Trắng",
+          "size": "M",
+          "quantity": 1
+        }
+      ]
     }
   ],
-  "orders": [
+  "order": [
     {
       "user": {
         "name": "Tran na",
@@ -484,6 +516,72 @@
       "shippingCost": 15000,
       "status": "Chờ xác nhận",
       "id": 2
+    },
+    {
+      "user": {
+        "name": "Tran na",
+        "phone": "0783448693",
+        "address": "29 DHT 45",
+        "city": "HCM",
+        "district": "Q2",
+        "ward": "P1",
+        "paymentMethod": ""
+      },
+      "items": [
+        {
+          "id": 9,
+          "name": "Chân váy da",
+          "price": 180000,
+          "image": "https://i.pinimg.com/474x/95/14/09/9514091bcc63d58c1cb0dd36ebfc5d65.jpg",
+          "color": "Đen",
+          "size": "M",
+          "quantity": 1,
+          "variants": [
+            {
+              "color": "Đen",
+              "size": "M",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "name": "Đầm polo xếp ly",
+          "price": "195000",
+          "image": "https://scontent.fsgn1-1.fna.fbcdn.net/v/t39.30808-6/462186121_961172376057325_5309033170091823994_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ar9QdPGWCHsQ7kNvgFqqJr9&_nc_ht=scontent.fsgn1-1.fna&_nc_gid=ADbf09Z53wOjFjTL2cEIL23&oh=00_AYBjUe4qQAttdknuO_-2IxgthINDm3HmQiH03CDuvdt_Nw&oe=670AD1AA",
+          "color": "Đen",
+          "size": "S",
+          "quantity": 1,
+          "variants": [
+            {
+              "color": "Đen",
+              "size": "S",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "name": "Áo sơ mi chiết eo",
+          "price": 120000,
+          "image": "https://i.pinimg.com/564x/90/69/3f/90693fa36cbf4ad03c5ee158409e2d25.jpg",
+          "color": "Trắng",
+          "size": "M",
+          "quantity": 1,
+          "variants": [
+            {
+              "color": "Trắng",
+              "size": "M",
+              "quantity": 1
+            }
+          ]
+        }
+      ],
+      "totalAmount": 510000,
+      "discountAmount": 10000,
+      "shippingCost": 15000,
+      "status": "Chờ xác nhận",
+      "id": 3
     }
   ]
 }
